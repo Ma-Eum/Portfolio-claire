@@ -1,0 +1,85 @@
+@use '../../styles/_variables' as *;
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: $spacing-lg;
+  height: 100%;
+  padding: $spacing-lg;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+}
+
+.project-card__context {
+  margin: 0 0 $spacing-sm;
+  color: $color-primary;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.project-card__title {
+  margin: 0 0 $spacing-sm;
+  font-size: 1.35rem;
+}
+
+.project-card__description {
+  margin: 0 0 $spacing-md;
+  color: $color-text-secondary;
+}
+
+.project-card__stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-card__tag {
+  padding: 0.4rem 0.75rem;
+  background-color: #eef2ff;
+  border-radius: 999px;
+  color: $color-primary-hover;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.project-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  text-align: center;
+}
+
+.project-card__link--primary {
+  background-color: $color-primary;
+  color: $color-surface;
+}
+
+.project-card__link--primary:hover {
+  background-color: $color-primary-hover;
+}
+
+.project-card__link--secondary {
+  border: 1px solid $color-border;
+  background-color: $color-surface;
+  color: $color-text;
+}
+
+.project-card__link--secondary:hover {
+  background-color: #f3f4f6;
+}

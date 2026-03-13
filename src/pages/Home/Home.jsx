@@ -1,8 +1,11 @@
+import ProjectCard from '../../components/ProjectCard/ProjectCard'
+import projects from '../../data/projects'
 import './home.scss'
 
 // Home est la page d'accueil du portfolio.
-// Le <main> porte l'id "main-content" pour fonctionner avec le lien d'évitement.
-// On structure le contenu avec des sections sémantiques.
+// Le contenu principal présente le profil puis une sélection de projets.
+// Les projets sont générés dynamiquement à partir du fichier data/projects.js
+// pour faciliter la maintenance et la réutilisation.
 function Home() {
   return (
     <main id="main-content" className="home">
@@ -23,13 +26,14 @@ function Home() {
 
         <section className="home__section" aria-labelledby="home-projects-title">
           <h2 id="home-projects-title" className="home__section-title">
-            Projets
+            Projets sélectionnés
           </h2>
 
-          <p className="home__placeholder">
-            La liste détaillée des projets sera ajoutée à l’étape suivante avec les cartes projet
-            et les données dynamiques.
-          </p>
+          <div className="home__projects-grid">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} project={project} />
+            ))}
+          </div>
         </section>
       </div>
     </main>

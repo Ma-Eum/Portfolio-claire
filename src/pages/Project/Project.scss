@@ -1,15 +1,100 @@
-@use '../../styles/variables' as *;
+@use '../../styles/_variables' as *;
 
 .project {
   padding-block: $spacing-xl;
 }
 
+.project__context {
+  margin: 0 0 $spacing-sm;
+  color: $color-primary;
+  font-weight: 700;
+}
+
 .project__title {
-  margin-bottom: $spacing-lg;
+  margin: 0 0 $spacing-md;
   font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.project__meta {
+  margin: 0 0 $spacing-lg;
+  color: $color-text-secondary;
+}
+
+.project__section {
+  margin-bottom: $spacing-xl;
+}
+
+.project__section-title {
+  margin-bottom: $spacing-md;
+  font-size: 1.5rem;
 }
 
 .project__text {
   max-width: 800px;
   color: $color-text-secondary;
+}
+
+.project__list {
+  max-width: 800px;
+}
+
+.project__list li {
+  margin-bottom: 0.5rem;
+}
+
+.project__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project__tag {
+  padding: 0.4rem 0.75rem;
+  background-color: #eef2ff;
+  border-radius: 999px;
+  color: $color-primary-hover;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.project__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-top: $spacing-lg;
+}
+
+.project__link,
+.project__back-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  border-radius: $radius-sm;
+  font-weight: 600;
+}
+
+.project__link--primary,
+.project__back-link {
+  background-color: $color-primary;
+  color: $color-surface;
+}
+
+.project__link--primary:hover,
+.project__back-link:hover {
+  background-color: $color-primary-hover;
+}
+
+.project__link--secondary {
+  border: 1px solid $color-border;
+  background-color: $color-surface;
+  color: $color-text;
+}
+
+.project__link--secondary:hover {
+  background-color: #f3f4f6;
 }

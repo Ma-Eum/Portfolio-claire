@@ -42,3 +42,9 @@
   border-radius: $radius-md;
   box-shadow: $shadow-card;
 }
+
+.home__projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $spacing-lg;
+}
