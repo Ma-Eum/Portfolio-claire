@@ -29,12 +29,31 @@ function Home() {
             progresser dans les bonnes pratiques du développement web.
           </p>
 
+          {/* Points forts visibles immédiatement pour un recruteur */}
+          <ul className="home__highlights" aria-label="Points forts du profil">
+            <li>React et architecture de composants</li>
+            <li>Intégration responsive et interfaces lisibles</li>
+            <li>Accessibilité, structure sémantique et focus clavier</li>
+            <li>API, debug, tests et refactor</li>
+          </ul>
+
           <div className="home__hero-actions">
             <a className="home__button home__button--primary" href="#projects-section">
               Voir mes projets
             </a>
+
             <a className="home__button home__button--secondary" href="#skills-section">
               Voir mes compétences
+            </a>
+
+            <a
+              className="home__button home__button--secondary"
+              href="https://github.com/Ma-Eum"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Voir le profil GitHub de Claire Gachelin"
+            >
+              Voir mon GitHub
             </a>
           </div>
         </section>
@@ -131,7 +150,7 @@ function Home() {
           </div>
         </section>
 
-                {/* Section de prise de contact :
+        {/* Section de prise de contact :
             contrairement au footer, ce bloc ne duplique pas toutes les coordonnées.
             Il sert surtout d'appel à l'action pour inviter un recruteur à me contacter. */}
         <section

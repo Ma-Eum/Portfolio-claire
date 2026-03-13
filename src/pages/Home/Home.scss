@@ -29,6 +29,29 @@
   font-size: 1.05rem;
 }
 
+.home__highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin: 0 0 $spacing-lg;
+  padding: 0;
+  list-style: none;
+}
+
+.home__highlights li {
+  padding: 0.5rem 0.85rem;
+  background-color: #eef2ff;
+  border-radius: 999px;
+  color: $color-primary-hover;
+  font-weight: 600;
+}
+
+.home__contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
 .home__hero-actions {
   display: flex;
   flex-wrap: wrap;
