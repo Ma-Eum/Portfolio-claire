@@ -1,7 +1,12 @@
-@use '../../styles/variables' as *;
+@use '../../styles/_variables' as *;
 
 .about {
   padding-block: $spacing-xl;
+}
+
+.about__intro,
+.about__section {
+  margin-bottom: 3rem;
 }
 
 .about__title {
@@ -9,8 +14,37 @@
   font-size: clamp(2rem, 4vw, 3rem);
 }
 
+.about__section-title {
+  margin-bottom: $spacing-md;
+  font-size: 1.6rem;
+}
+
 .about__text {
-  max-width: 800px;
+  max-width: 850px;
   margin: 0 0 $spacing-md;
+  color: $color-text-secondary;
+}
+
+.about__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: $spacing-lg;
+}
+
+.about__card {
+  padding: $spacing-lg;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+}
+
+.about__card-title {
+  margin: 0 0 $spacing-sm;
+  font-size: 1.15rem;
+}
+
+.about__card-text {
+  margin: 0;
   color: $color-text-secondary;
 }

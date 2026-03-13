@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use '../../styles/_variables' as *;
 
 .home {
   padding-block: $spacing-xl;
@@ -23,10 +23,49 @@
 }
 
 .home__intro {
-  max-width: 800px;
-  margin: 0;
+  max-width: 850px;
+  margin: 0 0 $spacing-lg;
   color: $color-text-secondary;
   font-size: 1.05rem;
+}
+
+.home__hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+}
+
+.home__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  border-radius: $radius-sm;
+  font-weight: 600;
+}
+
+.home__button--primary {
+  background-color: $color-primary;
+  color: $color-surface;
+}
+
+.home__button--primary:hover {
+  background-color: $color-primary-hover;
+}
+
+.home__button--secondary {
+  border: 1px solid $color-border;
+  background-color: $color-surface;
+  color: $color-text;
+}
+
+.home__button--secondary:hover {
+  background-color: #f3f4f6;
+}
+
+.home__section {
+  margin-bottom: 3rem;
 }
 
 .home__section-title {
@@ -34,13 +73,30 @@
   font-size: 1.75rem;
 }
 
-.home__placeholder {
-  max-width: 800px;
+.home__skills-grid,
+.home__value-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: $spacing-lg;
+}
+
+.home__info-card,
+.home__value-item {
   padding: $spacing-lg;
   background-color: $color-surface;
   border: 1px solid $color-border;
   border-radius: $radius-md;
   box-shadow: $shadow-card;
+}
+
+.home__card-title {
+  margin: 0 0 $spacing-sm;
+  font-size: 1.15rem;
+}
+
+.home__card-text {
+  margin: 0;
+  color: $color-text-secondary;
 }
 
 .home__projects-grid {

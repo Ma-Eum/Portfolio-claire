@@ -39,11 +39,23 @@ function Project() {
           <strong>Durée estimée :</strong> {project.duration}
         </p>
 
+        {/* Sections de contenu du projet :
+            on sépare la présentation, la valeur démontrée,
+            les compétences mobilisées et la stack technique
+            pour garder une lecture claire et structurée. */}
+
         <section className="project__section" aria-labelledby="project-description-title">
           <h2 id="project-description-title" className="project__section-title">
             Présentation
           </h2>
           <p className="project__text">{project.fullDescription}</p>
+        </section>
+
+        <section className="project__section" aria-labelledby="project-recruiter-title">
+          <h2 id="project-recruiter-title" className="project__section-title">
+            Ce que ce projet montre
+          </h2>
+          <p className="project__text">{project.recruiterHighlight}</p>
         </section>
 
         <section className="project__section" aria-labelledby="project-skills-title">
