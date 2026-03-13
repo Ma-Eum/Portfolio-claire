@@ -112,26 +112,8 @@
   color: $color-text-secondary;
 }
 
-.home__contact-list {
-  margin: 0;
-  padding-left: 1.25rem;
-}
-
-.home__contact-list li {
-  margin-bottom: $spacing-sm;
-}
-
-.home__contact-link {
-  color: $color-primary;
-  text-decoration: underline;
-  text-underline-offset: 0.15em;
-}
-
-.home__contact-link:hover {
-  color: $color-primary-hover;
-}
-
-.home__contact-placeholder {
-  color: $color-text-secondary;
-  font-style: italic;
+.home__contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
 }

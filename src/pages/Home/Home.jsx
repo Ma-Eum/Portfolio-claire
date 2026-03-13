@@ -131,12 +131,16 @@ function Home() {
           </div>
         </section>
 
-        {/* Section de contact :
-            elle permet à un recruteur d'identifier rapidement
-            les moyens de prise de contact disponibles. */}
-        <section id="contact-section" className="home__section" aria-labelledby="home-contact-title">
+                {/* Section de prise de contact :
+            contrairement au footer, ce bloc ne duplique pas toutes les coordonnées.
+            Il sert surtout d'appel à l'action pour inviter un recruteur à me contacter. */}
+        <section
+          id="contact-section"
+          className="home__section"
+          aria-labelledby="home-contact-title"
+        >
           <h2 id="home-contact-title" className="home__section-title">
-            Contact
+            Travaillons ensemble
           </h2>
 
           <div className="home__contact-card">
@@ -146,29 +150,21 @@ function Home() {
               d’une équipe.
             </p>
 
-            <ul className="home__contact-list">
-              <li>
-                <strong>Email :</strong>{' '}
-                <a className="home__contact-link" href="mailto:ton-email@example.com">
-                  ton-email@example.com
-                </a>
-              </li>
-              <li>
-                <strong>GitHub :</strong>{' '}
-                <a
-                  className="home__contact-link"
-                  href="https://github.com/Ma-Eum"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  github.com/Ma-Eum
-                </a>
-              </li>
-              <li>
-                <strong>LinkedIn :</strong>{' '}
-                <span className="home__contact-placeholder">à ajouter</span>
-              </li>
-            </ul>
+            <div className="home__contact-actions">
+              <a className="home__button home__button--primary" href="mailto:cl.gachelin@gmail.com">
+                Me contacter par email
+              </a>
+
+              <a
+                className="home__button home__button--secondary"
+                href="https://www.linkedin.com/in/claire-gachelin"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Voir le profil LinkedIn de Claire Gachelin"
+              >
+                Voir mon LinkedIn
+              </a>
+            </div>
           </div>
         </section>
       </div>
