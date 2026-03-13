@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use '../../styles/_variables' as *;
 
 .site-footer {
   margin-top: $spacing-xl;
@@ -7,8 +7,43 @@
   border-top: 1px solid $color-border;
 }
 
+.site-footer__content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: $spacing-lg;
+}
+
+.site-footer__block {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.site-footer__title {
+  margin: 0;
+  font-weight: 700;
+}
+
 .site-footer__text {
   margin: 0;
   color: $color-text-secondary;
-  text-align: center;
+}
+
+.site-footer__list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.site-footer__list li {
+  margin-bottom: 0.5rem;
+}
+
+.site-footer__list a {
+  color: $color-primary;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.site-footer__list a:hover {
+  color: $color-primary-hover;
 }

@@ -81,7 +81,8 @@
 }
 
 .home__info-card,
-.home__value-item {
+.home__value-item,
+.home__contact-card {
   padding: $spacing-lg;
   background-color: $color-surface;
   border: 1px solid $color-border;
@@ -103,4 +104,34 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: $spacing-lg;
+}
+
+.home__contact-text {
+  max-width: 850px;
+  margin: 0 0 $spacing-lg;
+  color: $color-text-secondary;
+}
+
+.home__contact-list {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.home__contact-list li {
+  margin-bottom: $spacing-sm;
+}
+
+.home__contact-link {
+  color: $color-primary;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.home__contact-link:hover {
+  color: $color-primary-hover;
+}
+
+.home__contact-placeholder {
+  color: $color-text-secondary;
+  font-style: italic;
 }

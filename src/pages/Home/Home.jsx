@@ -1,15 +1,16 @@
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
 import projects from '../../data/projects'
-import './home.scss'
+import './Home.scss'
 
 // Home est la page d'accueil du portfolio.
 // Le contenu est découpé en sections sémantiques pour améliorer
 // la compréhension, la maintenance et l'accessibilité.
 //
-// Cette page doit répondre rapidement à 3 questions pour un recruteur :
+// Cette page doit répondre rapidement à 4 questions pour un recruteur :
 // 1. Qui suis-je ?
 // 2. Quelles compétences je mobilise ?
 // 3. Quels projets démontrent mon potentiel ?
+// 4. Comment me contacter ?
 function Home() {
   return (
     <main id="main-content" className="home">
@@ -127,6 +128,47 @@ function Home() {
             {projects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
+          </div>
+        </section>
+
+        {/* Section de contact :
+            elle permet à un recruteur d'identifier rapidement
+            les moyens de prise de contact disponibles. */}
+        <section id="contact-section" className="home__section" aria-labelledby="home-contact-title">
+          <h2 id="home-contact-title" className="home__section-title">
+            Contact
+          </h2>
+
+          <div className="home__contact-card">
+            <p className="home__contact-text">
+              Je recherche une opportunité pour continuer à évoluer en développement front-end,
+              contribuer à des interfaces web utiles et consolider mes compétences React au sein
+              d’une équipe.
+            </p>
+
+            <ul className="home__contact-list">
+              <li>
+                <strong>Email :</strong>{' '}
+                <a className="home__contact-link" href="mailto:ton-email@example.com">
+                  ton-email@example.com
+                </a>
+              </li>
+              <li>
+                <strong>GitHub :</strong>{' '}
+                <a
+                  className="home__contact-link"
+                  href="https://github.com/Ma-Eum"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  github.com/Ma-Eum
+                </a>
+              </li>
+              <li>
+                <strong>LinkedIn :</strong>{' '}
+                <span className="home__contact-placeholder">à ajouter</span>
+              </li>
+            </ul>
           </div>
         </section>
       </div>
