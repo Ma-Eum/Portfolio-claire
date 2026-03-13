@@ -1,0 +1,44 @@
+@use '../../styles/variables' as *;
+
+.home {
+  padding-block: $spacing-xl;
+}
+
+.home__hero {
+  margin-bottom: 3rem;
+}
+
+.home__eyebrow {
+  margin: 0 0 $spacing-sm;
+  color: $color-primary;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.home__title {
+  margin: 0 0 $spacing-md;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.1;
+}
+
+.home__intro {
+  max-width: 800px;
+  margin: 0;
+  color: $color-text-secondary;
+  font-size: 1.05rem;
+}
+
+.home__section-title {
+  margin-bottom: $spacing-md;
+  font-size: 1.75rem;
+}
+
+.home__placeholder {
+  max-width: 800px;
+  padding: $spacing-lg;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+}

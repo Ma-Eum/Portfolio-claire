@@ -1,0 +1,15 @@
+@use '../../styles/variables' as *;
+
+.project {
+  padding-block: $spacing-xl;
+}
+
+.project__title {
+  margin-bottom: $spacing-lg;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.project__text {
+  max-width: 800px;
+  color: $color-text-secondary;
+}

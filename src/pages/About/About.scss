@@ -1,0 +1,16 @@
+@use '../../styles/variables' as *;
+
+.about {
+  padding-block: $spacing-xl;
+}
+
+.about__title {
+  margin-bottom: $spacing-lg;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.about__text {
+  max-width: 800px;
+  margin: 0 0 $spacing-md;
+  color: $color-text-secondary;
+}
