@@ -1,17 +1,23 @@
 // ==============================
 // Variables globales du projet
 // ==============================
-// Ce fichier centralise les couleurs, espacements et styles récurrents.
-// L'objectif est de faciliter la maintenance et l'harmonisation de l'interface.
+// Ce fichier centralise les couleurs, espacements,
+// rayons, ombres, tailles et breakpoints.
 
 $color-background: #f7f7f9;
 $color-surface: #ffffff;
 $color-text: #1f1f1f;
 $color-text-secondary: #4b5563;
 $color-border: #d1d5db;
+
 $color-primary: #4338ca;
 $color-primary-hover: #312e81;
 $color-focus: #2563eb;
+
+$color-tag-background: #eef2ff;
+$color-tag-text: $color-primary-hover;
+$color-button-secondary-hover: #f3f4f6;
+$color-card-shadow: rgba(0, 0, 0, 0.1);
 
 $font-main: Arial, Helvetica, sans-serif;
 
@@ -26,5 +32,14 @@ $spacing-xl: 2rem;
 $radius-sm: 8px;
 $radius-md: 12px;
 $radius-lg: 16px;
+$radius-pill: 999px;
 
 $shadow-card: 0 4px 16px rgba(0, 0, 0, 0.08);
+$shadow-card-hover: 0 10px 22px rgba(0, 0, 0, 0.1);
+
+$project-card-image-height: 180px;
+$project-card-image-height-mobile: 200px;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1100px;

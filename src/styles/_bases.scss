@@ -1,0 +1,86 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+// ==============================
+// Reset global
+// ==============================
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-main;
+  background-color: $color-background;
+  color: $color-text;
+  line-height: 1.5;
+}
+
+// ==============================
+// Typographie
+// ==============================
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 700;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// ==============================
+// Images
+// ==============================
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+// ==============================
+// Layout global
+// ==============================
+
+.container {
+  width: 100%;
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+// ==============================
+// Accessibilité
+// ==============================
+
+// Focus visible (important clavier)
+:focus-visible {
+  @include focus-ring;
+}
+
+// Skip link (navigation rapide clavier)
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: $spacing-md;
+  background: $color-primary;
+  color: $color-surface;
+  padding: $spacing-sm $spacing-md;
+  z-index: 100;
+  border-radius: $radius-sm;
+}
+
+.skip-link:focus {
+  top: $spacing-md;
+}

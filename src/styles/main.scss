@@ -1,4 +1,6 @@
-@use './_variables' as *;
+@use './variables' as *;
+@use './bases' as *;
+@use './mixins' as *;
 
 // ==============================
 // Reset / base globale
