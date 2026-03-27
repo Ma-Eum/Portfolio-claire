@@ -15,61 +15,93 @@
 
 .not-found__visual {
   position: relative;
-  min-height: 360px;
-  border-radius: $radius-lg;
+  min-height: 380px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at top, #1f2a68 0%, #111827 45%, #09090b 100%);
+  border-radius: $radius-lg;
+  background: linear-gradient(180deg, #fffafc 0%, #fdf2f8 45%, #eef2ff 100%);
   box-shadow: $shadow-card;
 }
 
-.not-found__planet {
+/* Soleil doux en fond */
+.not-found__sun {
   position: absolute;
-  bottom: -60px;
-  left: 50%;
-  width: 260px;
-  height: 260px;
+  top: 14%;
+  right: 14%;
+  width: 110px;
+  height: 110px;
   border-radius: 50%;
-  transform: translateX(-50%);
-  background:
-    radial-gradient(circle at 35% 35%, #818cf8 0%, #4f46e5 45%, #312e81 100%);
-  box-shadow: 0 0 60px rgba(79, 70, 229, 0.45);
+  background: radial-gradient(circle, #fff7ed 0%, #fde68a 100%);
+  opacity: 0.65;
+  box-shadow: 0 0 30px rgba(253, 224, 71, 0.25);
 }
 
-.not-found__astronaut {
+/* Branche stylisée */
+.not-found__branch {
   position: absolute;
-  top: 22%;
-  left: 50%;
-  font-size: 5rem;
-  transform: translateX(-50%) rotate(-8deg);
+  top: 28%;
+  left: -5%;
+  width: 70%;
+  height: 8px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c2d12 0%, #9a3412 100%);
+  transform: rotate(-8deg);
+  transform-origin: left center;
 }
 
-.not-found__stars::before,
-.not-found__stars::after {
-  content: '';
+/* Base commune des pétales */
+.not-found__petal {
   position: absolute;
-  inset: 0;
-  background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.95) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.8) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255, 255, 255, 0.7) 1px, transparent 1px);
-  background-size: 120px 120px, 180px 180px, 240px 240px;
-  background-position: 10px 20px, 40px 70px, 80px 30px;
-  opacity: 0.8;
+  width: 24px;
+  height: 18px;
+  background: linear-gradient(135deg, #fbcfe8 0%, #f9a8d4 100%);
+  border-radius: 70% 30% 70% 30%;
+  opacity: 0.9;
+  box-shadow: 0 4px 10px rgba(244, 114, 182, 0.18);
+}
+
+/* Placement poétique des pétales */
+.not-found__petal--1 {
+  top: 26%;
+  left: 24%;
+  transform: rotate(18deg);
+}
+
+.not-found__petal--2 {
+  top: 38%;
+  left: 40%;
+  transform: rotate(-12deg);
+}
+
+.not-found__petal--3 {
+  top: 52%;
+  left: 54%;
+  transform: rotate(22deg);
+}
+
+.not-found__petal--4 {
+  top: 66%;
+  left: 30%;
+  transform: rotate(-18deg);
+}
+
+.not-found__petal--5 {
+  top: 74%;
+  left: 62%;
+  transform: rotate(10deg);
 }
 
 .not-found__eyebrow {
   margin: 0 0 $spacing-sm;
   color: $color-primary;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .not-found__title {
   margin: 0 0 $spacing-md;
   font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 .not-found__text {
@@ -79,8 +111,8 @@
 }
 
 .not-found__text--secondary {
-  color: $color-text-secondary;
   margin-bottom: $spacing-lg;
+  color: $color-text-secondary;
 }
 
 .not-found__actions {
@@ -122,11 +154,7 @@
   }
 
   .not-found__visual {
-    min-height: 260px;
-  }
-
-  .not-found__astronaut {
-    font-size: 4rem;
+    min-height: 250px;
   }
 
   .not-found__actions {
