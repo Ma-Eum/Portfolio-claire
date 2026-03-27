@@ -98,3 +98,12 @@
 .project__link--secondary:hover {
   background-color: #f3f4f6;
 }
+
+.project__image {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 0 $spacing-lg;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  box-shadow: $shadow-card;
+}

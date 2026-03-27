@@ -1,4 +1,4 @@
-@use '../../styles/_variables' as *;
+@use '../../styles/variables' as *;
 
 .project-card {
   display: flex;
@@ -6,11 +6,30 @@
   justify-content: space-between;
   gap: $spacing-lg;
   height: 100%;
-  padding: $spacing-lg;
+  overflow: hidden;
   background-color: $color-surface;
   border: 1px solid $color-border;
   border-radius: $radius-md;
   box-shadow: $shadow-card;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.1);
+}
+
+.project-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid $color-border;
+}
+
+.project-card__content {
+  padding: $spacing-lg $spacing-lg 0;
 }
 
 .project-card__context {
@@ -52,6 +71,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: $spacing-sm;
+  padding: 0 $spacing-lg $spacing-lg;
 }
 
 .project-card__link {

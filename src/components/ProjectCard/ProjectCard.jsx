@@ -1,12 +1,18 @@
 import { Link } from 'react-router-dom'
 import './ProjectCard.scss'
 
-// Carte réutilisable pour afficher un projet dans la page d'accueil.
-// On utilise un <article> car chaque carte représente un contenu autonome.
-// Les tags de stack sont rendus sous forme de liste pour garder une structure sémantique.
+// Carte réutilisable pour afficher un projet.
+// Chaque carte présente un aperçu visuel, le contexte,
+// la description courte, la stack et les actions principales.
 function ProjectCard({ project }) {
   return (
     <article className="project-card">
+      <img
+        src={project.image}
+        alt={`Aperçu du projet ${project.title}`}
+        className="project-card__image"
+      />
+
       <div className="project-card__content">
         <p className="project-card__context">{project.context}</p>
 

@@ -35,15 +35,20 @@ function Project() {
 
         <h1 className="project__title">{project.title}</h1>
 
+        <img
+          src={project.image}
+          alt={`Aperçu du projet ${project.title}`}
+          className="project__image"
+        />
+
         <p className="project__meta">
           <strong>Durée estimée :</strong> {project.duration}
         </p>
 
         {/* Sections de contenu du projet :
             on sépare la présentation, la valeur démontrée,
-            les compétences mobilisées et la stack technique
-            pour garder une lecture claire et structurée. */}
-
+            le travail réalisé, les compétences mobilisées
+            et la stack technique pour garder une lecture claire et structurée. */}
         <section className="project__section" aria-labelledby="project-description-title">
           <h2 id="project-description-title" className="project__section-title">
             Présentation
@@ -56,6 +61,18 @@ function Project() {
             Ce que ce projet montre
           </h2>
           <p className="project__text">{project.recruiterHighlight}</p>
+        </section>
+
+        <section className="project__section" aria-labelledby="project-work-title">
+          <h2 id="project-work-title" className="project__section-title">
+            Ce que j’ai réalisé
+          </h2>
+
+          <ul className="project__list">
+            {project.work.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </section>
 
         <section className="project__section" aria-labelledby="project-skills-title">
