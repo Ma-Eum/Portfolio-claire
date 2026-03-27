@@ -1,167 +1,368 @@
-@use '../../styles/variables' as *;
-@use '../../styles/mixins' as *;
-
 .not-found {
-  padding-block: $spacing-xl;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: #f6f0f3;
+  overflow: hidden;
 }
 
 .not-found__content {
+  position: relative;
+  width: min(1280px, 100%);
+  min-height: 720px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: $spacing-xl;
-  min-height: 70vh;
+  align-items: stretch;
+  border-radius: 28px;
+  overflow: hidden;
+  isolation: isolate;
+  background: #f6f0f3;
 }
 
 .not-found__visual {
-  position: relative;
-  min-height: 380px;
-  overflow: hidden;
-  border-radius: $radius-lg;
-  background: linear-gradient(180deg, #fffafc 0%, #fdf2f8 45%, #eef2ff 100%);
-  box-shadow: $shadow-card;
-}
-
-/* Soleil doux en fond */
-.not-found__sun {
   position: absolute;
-  top: 14%;
-  right: 14%;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #fff7ed 0%, #fde68a 100%);
-  opacity: 0.65;
-  box-shadow: 0 0 30px rgba(253, 224, 71, 0.25);
+  inset: 0;
+  z-index: 0;
+  background-image: url('/src/assets/images/notfound-sakura-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 
-/* Branche stylisée */
-.not-found__branch {
+.not-found__content::after {
+  content: '';
   position: absolute;
-  top: 28%;
-  left: -5%;
-  width: 70%;
-  height: 8px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #7c2d12 0%, #9a3412 100%);
-  transform: rotate(-8deg);
-  transform-origin: left center;
-}
-
-/* Base commune des pétales */
-.not-found__petal {
-  position: absolute;
-  width: 24px;
-  height: 18px;
-  background: linear-gradient(135deg, #fbcfe8 0%, #f9a8d4 100%);
-  border-radius: 70% 30% 70% 30%;
-  opacity: 0.9;
-  box-shadow: 0 4px 10px rgba(244, 114, 182, 0.18);
-}
-
-/* Placement poétique des pétales */
-.not-found__petal--1 {
-  top: 26%;
-  left: 24%;
-  transform: rotate(18deg);
-}
-
-.not-found__petal--2 {
-  top: 38%;
-  left: 40%;
-  transform: rotate(-12deg);
-}
-
-.not-found__petal--3 {
-  top: 52%;
-  left: 54%;
-  transform: rotate(22deg);
-}
-
-.not-found__petal--4 {
-  top: 66%;
-  left: 30%;
-  transform: rotate(-18deg);
-}
-
-.not-found__petal--5 {
-  top: 74%;
-  left: 62%;
-  transform: rotate(10deg);
-}
-
-.not-found__eyebrow {
-  margin: 0 0 $spacing-sm;
-  color: $color-primary;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-.not-found__title {
-  margin: 0 0 $spacing-md;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 1.15;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(246, 240, 243, 0.03) 0%,
+    rgba(246, 240, 243, 0.08) 32%,
+    rgba(246, 240, 243, 0.12) 48%,
+    rgba(246, 240, 243, 0.17) 58%,
+    rgba(246, 240, 243, 0.24) 68%,
+    rgba(246, 240, 243, 0.34) 100%
+  );
 }
 
 .not-found__text {
-  margin: 0 0 $spacing-sm;
-  font-size: 1.05rem;
-  color: $color-text;
+  position: relative;
+  z-index: 3;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  max-width: 620px;
+  padding: 4.5rem 4.5rem 4rem 2.5rem;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
-.not-found__text--secondary {
-  margin-bottom: $spacing-lg;
-  color: $color-text-secondary;
+.not-found__kanji {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  z-index: 0;
+  font-size: clamp(5.4rem, 8vw, 8.2rem);
+  font-weight: 500;
+  line-height: 1;
+  color: #dacdea;
+  opacity: 0.42;
+  pointer-events: none;
+  user-select: none;
+}
+
+.not-found__eyebrow,
+.not-found__title,
+.not-found__description,
+.not-found__actions {
+  position: relative;
+  z-index: 1;
+}
+
+.not-found__eyebrow {
+  margin: 0 0 1rem;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #5e44a8;
+}
+
+.not-found__title {
+  margin: 0 0 1.6rem;
+  font-size: clamp(2.7rem, 4vw, 4.2rem);
+  line-height: 1.05;
+  font-weight: 700;
+  color: #2f2437;
+}
+
+.not-found__description {
+  margin: 0 0 1.35rem;
+  max-width: 31ch;
+  font-size: 1.22rem;
+  line-height: 1.7;
+  color: #51465c;
 }
 
 .not-found__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: $spacing-sm;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .not-found__button {
-  @include button-base;
-  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  padding: 0 1.6rem;
+  border-radius: 12px;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
   cursor: pointer;
-  font-family: inherit;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .not-found__button--primary {
-  background-color: $color-primary;
-  color: $color-surface;
-}
+  background: #5e44a8;
+  color: #ffffff;
+  border: 1px solid #5e44a8;
 
-.not-found__button--primary:hover {
-  background-color: $color-primary-hover;
+  &:hover {
+    background: #533b96;
+    border-color: #533b96;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(94, 68, 168, 0.18);
+  }
 }
 
 .not-found__button--secondary {
-  background-color: $color-surface;
-  color: $color-text;
-  border: 1px solid $color-border;
+  background: rgba(255, 255, 255, 0.34);
+  color: #5e44a8;
+  border: 1px solid rgba(94, 68, 168, 0.28);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.55);
+    border-color: #5e44a8;
+    transform: translateY(-1px);
+  }
 }
 
-.not-found__button--secondary:hover {
-  background-color: $color-button-secondary-hover;
+.not-found__petals {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
 }
 
-@include mobile {
+.petal {
+  position: absolute;
+  top: -12%;
+  width: 18px;
+  height: 12px;
+  border-radius: 70% 30% 70% 30%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 241, 246, 0.96) 0%,
+    rgba(248, 193, 217, 0.9) 55%,
+    rgba(238, 151, 189, 0.82) 100%
+  );
+  opacity: 0;
+  filter: blur(0.15px);
+  animation-name: sakura-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.petal--1 {
+  left: 8%;
+  animation-duration: 13s;
+  animation-delay: -2s;
+}
+
+.petal--2 {
+  left: 20%;
+  animation-duration: 16s;
+  animation-delay: -7s;
+}
+
+.petal--3 {
+  left: 34%;
+  animation-duration: 15s;
+  animation-delay: -4s;
+}
+
+.petal--4 {
+  left: 49%;
+  animation-duration: 18s;
+  animation-delay: -9s;
+}
+
+.petal--5 {
+  left: 61%;
+  animation-duration: 14s;
+  animation-delay: -3s;
+}
+
+.petal--6 {
+  left: 73%;
+  animation-duration: 17s;
+  animation-delay: -6s;
+}
+
+.petal--7 {
+  left: 84%;
+  animation-duration: 19s;
+  animation-delay: -11s;
+}
+
+.petal--8 {
+  left: 92%;
+  animation-duration: 12s;
+  animation-delay: -5s;
+}
+
+@keyframes sakura-fall {
+  0% {
+    transform: translate3d(0, -8vh, 0) rotate(0deg) scale(0.85);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.72;
+  }
+
+  30% {
+    transform: translate3d(28px, 26vh, 0) rotate(90deg) scale(1);
+    opacity: 0.76;
+  }
+
+  55% {
+    transform: translate3d(-18px, 52vh, 0) rotate(165deg) scale(0.94);
+    opacity: 0.74;
+  }
+
+  80% {
+    transform: translate3d(24px, 82vh, 0) rotate(230deg) scale(0.88);
+    opacity: 0.58;
+  }
+
+  100% {
+    transform: translate3d(-30px, 112vh, 0) rotate(285deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1100px) {
+  .not-found__content {
+    min-height: 680px;
+  }
+
+  .not-found__text {
+    padding: 4rem 3rem 3.5rem 2rem;
+  }
+
+  .not-found__title {
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+  }
+
+  .not-found__description {
+    font-size: 1.12rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .not-found {
+    padding: 1rem;
+  }
+
   .not-found__content {
     grid-template-columns: 1fr;
-    min-height: auto;
+    min-height: 760px;
   }
 
   .not-found__visual {
-    min-height: 250px;
+    background-position: left center;
+  }
+
+  .not-found__text {
+    grid-column: 1;
+    justify-content: flex-end;
+    max-width: 100%;
+    padding: 3rem 2rem 2.5rem;
+  }
+
+  .not-found__kanji {
+    top: 0.6rem;
+    right: 0.8rem;
+    font-size: clamp(4.5rem, 14vw, 6rem);
+    opacity: 0.28;
+  }
+
+  .not-found__title {
+    font-size: clamp(2.2rem, 7vw, 3.1rem);
+  }
+
+  .not-found__description {
+    max-width: 100%;
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .not-found__content {
+    min-height: 700px;
+    border-radius: 22px;
+  }
+
+  .not-found__text {
+    padding: 2.2rem 1.25rem 1.5rem;
+  }
+
+  .not-found__eyebrow {
+    font-size: 0.8rem;
+  }
+
+  .not-found__title {
+    font-size: 2rem;
+  }
+
+  .not-found__description {
+    font-size: 0.98rem;
+    line-height: 1.6;
   }
 
   .not-found__actions {
     flex-direction: column;
+    align-items: stretch;
   }
 
   .not-found__button {
     width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal {
+    animation: none;
+    opacity: 0.22;
+  }
+
+  .not-found__button {
+    transition: none;
   }
 }
