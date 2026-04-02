@@ -7,11 +7,25 @@ import './ProjectCard.scss'
 function ProjectCard({ project }) {
   return (
     <article className="project-card">
-      <img
-        src={project.image}
-        alt={`Aperçu du projet ${project.title}`}
-        className="project-card__image"
-      />
+      <Link
+        className="project-card__media-link"
+        to={`/project/${project.id}`}
+        aria-label={`Voir le détail du projet ${project.title}`}
+      >
+        <div className="project-card__media">
+          <img
+            src={project.image}
+            alt={`Aperçu du projet ${project.title}`}
+            className="project-card__image"
+          />
+
+          <div className="project-card__overlay" aria-hidden="true" />
+
+          <span className="project-card__badge" aria-hidden="true">
+            ↗
+          </span>
+        </div>
+      </Link>
 
       <div className="project-card__content">
         <p className="project-card__context">{project.context}</p>
@@ -20,7 +34,10 @@ function ProjectCard({ project }) {
 
         <p className="project-card__description">{project.shortDescription}</p>
 
-        <ul className="project-card__stack" aria-label={`Technologies du projet ${project.title}`}>
+        <ul
+          className="project-card__stack"
+          aria-label={`Technologies du projet ${project.title}`}
+        >
           {project.stack.map((item) => (
             <li key={item} className="project-card__tag">
               {item}
