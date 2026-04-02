@@ -8,26 +8,27 @@ import About from './pages/About/About'
 import Project from './pages/Project/Project'
 import NotFound from './pages/NotFound/NotFound'
 
-// App gère la structure générale du site.
-// Le Header et le Footer sont communs à toutes les pages.
-// Les Routes permettent d'afficher la bonne page selon l'URL.
 function App() {
   return (
     <BrowserRouter>
-      <a className="skip-link" href="#main-content">
-        Aller au contenu principal
-      </a>
+      <div className="app-shell">
+        <a className="skip-link" href="#main-content">
+          Aller au contenu principal
+        </a>
 
-      <Header />
+        <Header />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/project/:id" element={<Project />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+        <main id="main-content" className="app-main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/project/:id" element={<Project />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
 
-      <Footer />
+        <Footer />
+      </div>
     </BrowserRouter>
   )
 }

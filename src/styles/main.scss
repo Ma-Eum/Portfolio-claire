@@ -13,15 +13,21 @@
 }
 
 html {
+  min-height: 100%;
   font-size: 100%;
 }
 
 body {
+  min-height: 100vh;
   margin: 0;
   font-family: $font-main;
   background-color: $color-background;
   color: $color-text;
   line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 // Évite que les images dépassent de leur conteneur.
@@ -58,19 +64,77 @@ textarea:focus-visible {
   margin-inline: auto;
 }
 
+// Layout global pour pousser le footer en bas
+// lorsque le contenu de la page est court.
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
+
 // Lien d'évitement accessible.
 // Masqué visuellement mais accessible au clavier.
 .skip-link {
   position: absolute;
-  top: -40px;
-  left: 1rem;
+  top: -120px;
+  left: 50%;
   z-index: 1000;
-  padding: 0.75rem 1rem;
-  background-color: $color-primary;
-  color: $color-surface;
-  border-radius: $radius-sm;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: max-content;
+  max-width: calc(100vw - 2rem);
+  padding: 0.65rem 1rem;
+
+  border: 1px solid $color-primary-dark;
+  border-radius: $radius-pill;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+
+  color: $color-primary-dark;
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.2;
+  text-align: center;
+  white-space: nowrap;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+
+  opacity: 0;
+  transform: translateX(-50%) translateY(-10px);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    top 0.25s ease;
 }
 
-.skip-link:focus {
-  top: 1rem;
+.skip-link:focus,
+.skip-link:focus-visible {
+  top: 0.5rem;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  outline: 2px solid $color-primary-dark;
+  outline-offset: 3px;
+}
+
+@include mobile {
+  .skip-link {
+    max-width: calc(100vw - 1.5rem);
+    padding: 0.55rem 0.9rem;
+    font-size: 0.85rem;
+    white-space: normal;
+  }
+
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    top: 0.4rem;
+  }
 }
