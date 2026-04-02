@@ -14,6 +14,7 @@
 .project__title {
   margin: 0 0 $spacing-md;
   font-size: clamp(2rem, 4vw, 3rem);
+  color: $color-text;
 }
 
 .project__meta {
@@ -28,11 +29,13 @@
 .project__section-title {
   margin-bottom: $spacing-md;
   font-size: 1.5rem;
+  color: $color-text;
 }
 
 .project__text {
   max-width: 800px;
   color: $color-text-secondary;
+  line-height: 1.7;
 }
 
 .project__list {
@@ -41,6 +44,7 @@
 
 .project__list li {
   margin-bottom: 0.5rem;
+  color: $color-text-secondary;
 }
 
 .project__tags {
@@ -54,9 +58,10 @@
 
 .project__tag {
   padding: 0.4rem 0.75rem;
-  background-color: #eef2ff;
-  border-radius: 999px;
-  color: $color-primary-hover;
+  background-color: $color-tag-background;
+  border: 1px solid $color-tag-border;
+  border-radius: $radius-pill;
+  color: $color-tag-text;
   font-size: 0.9rem;
   font-weight: 600;
 }
@@ -77,28 +82,47 @@
   padding: 0.75rem 1rem;
   border-radius: $radius-sm;
   font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
+
+/* bouton principal */
 
 .project__link--primary,
 .project__back-link {
-  background-color: $color-primary;
-  color: $color-surface;
+  background-color: $color-button-primary-background;
+  color: $color-button-primary-text;
+  border: 1px solid $color-button-primary-border;
 }
 
 .project__link--primary:hover,
 .project__back-link:hover {
-  background-color: $color-primary-hover;
+  background-color: $color-button-primary-background-hover;
+  border-color: $color-button-primary-background-hover;
+  transform: translateY(-1px);
+  box-shadow: $shadow-button-hover;
 }
 
+/* bouton secondaire */
+
 .project__link--secondary {
-  border: 1px solid $color-border;
-  background-color: $color-surface;
-  color: $color-text;
+  border: 1px solid $color-button-secondary-border;
+  background-color: $color-button-secondary-background;
+  color: $color-button-secondary-text;
 }
 
 .project__link--secondary:hover {
-  background-color: #f3f4f6;
+  background-color: $color-button-secondary-background-hover;
+  border-color: $color-primary;
+  transform: translateY(-1px);
 }
+
+/* image */
 
 .project__image {
   width: 100%;

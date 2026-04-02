@@ -13,17 +13,20 @@
 .about__title {
   margin-bottom: $spacing-lg;
   font-size: clamp(2rem, 4vw, 3rem);
+  color: $color-text;
 }
 
 .about__section-title {
   margin-bottom: $spacing-md;
   font-size: 1.6rem;
+  color: $color-text;
 }
 
 .about__text {
   max-width: 850px;
   margin: 0 0 $spacing-md;
   color: $color-text-secondary;
+  line-height: 1.7;
 }
 
 .about__grid {
@@ -34,18 +37,31 @@
 
 .about__card {
   padding: $spacing-lg;
-  background-color: $color-surface;
+  background: $color-surface-soft;
   border: 1px solid $color-border;
   border-radius: $radius-md;
   box-shadow: $shadow-card;
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.about__card:hover {
+  transform: translateY(-3px);
+  box-shadow: $shadow-card-hover;
+  border-color: $color-border-strong;
 }
 
 .about__card-title {
   margin: 0 0 $spacing-sm;
   font-size: 1.15rem;
+  color: $color-text;
 }
 
 .about__card-text {
   margin: 0;
   color: $color-text-secondary;
+  line-height: 1.7;
 }

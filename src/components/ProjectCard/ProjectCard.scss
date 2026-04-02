@@ -6,15 +6,26 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  @include card-base;
+  border-radius: $radius-md;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.46) 0%,
+    rgba(255, 255, 255, 0.26) 48%,
+    rgba(255, 255, 255, 0.18) 100%
+  );
+  border: 1px solid rgba(94, 68, 168, 0.1);
+  box-shadow: 0 18px 45px rgba(94, 68, 168, 0.08);
+  backdrop-filter: blur(10px);
   transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .project-card:hover {
   transform: translateY(-4px);
-  box-shadow: $shadow-card-hover;
+  box-shadow: 0 22px 50px rgba(94, 68, 168, 0.1);
+  border-color: rgba(94, 68, 168, 0.18);
 }
 
 .project-card__image {
@@ -22,12 +33,18 @@
   height: $project-card-image-height;
   object-fit: cover;
   object-position: top;
-  border-bottom: 1px solid $color-border;
+  border-bottom: 1px solid rgba(94, 68, 168, 0.1);
+  transition: transform 0.35s ease;
+}
+
+.project-card:hover .project-card__image {
+  transform: scale(1.02);
 }
 
 .project-card__content {
   display: flex;
   flex-direction: column;
+  flex: 1;
   padding: $spacing-lg $spacing-lg 0;
 }
 
@@ -36,16 +53,20 @@
   color: $color-primary;
   font-size: 0.9rem;
   font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 .project-card__title {
   margin: 0 0 $spacing-sm;
   font-size: 1.35rem;
+  line-height: 1.25;
+  color: $color-text;
 }
 
 .project-card__description {
   margin: 0 0 $spacing-md;
   color: $color-text-secondary;
+  line-height: 1.7;
 }
 
 .project-card__stack {
@@ -60,7 +81,8 @@
 
 .project-card__tag {
   padding: 0.4rem 0.75rem;
-  background-color: $color-tag-background;
+  background: $color-tag-background;
+  border: 1px solid $color-tag-border;
   border-radius: $radius-pill;
   color: $color-tag-text;
   font-size: 0.9rem;
@@ -76,29 +98,48 @@
 }
 
 .project-card__link {
-  @include button-base;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.75rem 1rem;
+  border-radius: $radius-sm;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .project-card__link--primary {
-  background-color: $color-primary;
-  color: $color-surface;
+  background-color: $color-button-primary-background;
+  color: $color-button-primary-text;
+  border: 1px solid $color-button-primary-border;
 }
 
 .project-card__link--primary:hover {
-  background-color: $color-primary-hover;
+  background-color: $color-button-primary-background-hover;
+  border-color: $color-button-primary-background-hover;
+  box-shadow: $shadow-button-hover;
+  transform: translateY(-1px);
 }
 
 .project-card__link--secondary {
-  border: 1px solid $color-border;
-  background-color: $color-surface;
-  color: $color-text;
+  border: 1px solid $color-button-secondary-border;
+  background-color: $color-button-secondary-background;
+  color: $color-button-secondary-text;
 }
 
 .project-card__link--secondary:hover {
-  background-color: $color-button-secondary-hover;
+  background-color: $color-button-secondary-background-hover;
+  border-color: $color-primary;
+  transform: translateY(-1px);
 }
 
-// Largeur intermédiaire : on stabilise les hauteurs
+/* Largeur intermédiaire : on stabilise les hauteurs */
 @include tablet-only {
   .project-card__title {
     min-height: 2.8rem;
@@ -113,7 +154,7 @@
   }
 }
 
-// Mobile : on simplifie la carte
+/* Mobile : on simplifie la carte */
 @include mobile {
   .project-card__image {
     height: $project-card-image-height-mobile;
@@ -125,5 +166,13 @@
 
   .project-card__link {
     width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-card__image,
+  .project-card__link {
+    transition: none;
   }
 }
