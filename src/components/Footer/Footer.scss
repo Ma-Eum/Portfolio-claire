@@ -51,8 +51,9 @@
 
 .site-footer__title {
   margin: 0;
+  font-size: 1.2rem;
   font-weight: 700;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
   color: $color-primary-dark;
 }
 
@@ -60,6 +61,7 @@
   margin: 0;
   max-width: 34ch;
   line-height: 1.7;
+  font-size: 1.02rem;
   color: $color-text-secondary;
 }
 
@@ -89,7 +91,9 @@
   border: none;
   background: transparent;
   color: $color-primary-dark;
-  font-weight: 600;
+  font-size: 1.02rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
   text-decoration: none;
   transition:
     color 0.25s ease,
@@ -249,9 +253,14 @@
     gap: $spacing-md;
   }
 
+  .site-footer__title {
+    font-size: 1.1rem;
+  }
+
   .site-footer__text {
     max-width: none;
     line-height: 1.75;
+    font-size: 1rem;
   }
 
   .site-footer__list {
@@ -260,6 +269,7 @@
 
   .site-footer__list a {
     min-height: auto;
+    font-size: 1rem;
   }
 
   .site-footer__icons {
