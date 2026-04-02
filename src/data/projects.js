@@ -1,7 +1,8 @@
 // Source de données centralisée du portfolio.
 // Chaque projet contient les informations nécessaires
 // pour l'affichage des cartes et des pages détail.
-// Ainsi on évite de dupliquer le contenu dans plusieurs 
+//
+// Ainsi on évite de dupliquer le contenu dans plusieurs
 // composants.
 //
 // Plus tard, si besoin, ce tableau pourra être remplacé
@@ -136,6 +137,38 @@ const projects = [
     ],
     stack: ['React', 'Refactor', 'Performance'],
     github: 'https://github.com/Ma-Eum/OpenClassroom_Projet14_HRnet.git',
+    demo: '',
+  },
+  {
+    id: 'handifun',
+    title: 'HandiFun',
+    image: '/projects/handifun.webp',
+    shortDescription:
+      'Création en équipe d’un site vitrine WordPress accessible pour une association proposant des activités de loisir à des personnes en situation de handicap.',
+    fullDescription:
+      'Projet collectif réalisé autour de WordPress pour concevoir un site associatif accessible, clair et évolutif. L’objectif était de donner de la visibilité à l’association, faciliter la diffusion d’informations, encourager les adhésions, attirer des bénévoles et préparer une future évolution vers des dons en ligne. Le projet a combiné personnalisation du thème, intégration front-end, adaptation de pages clés et mise en place d’extensions utiles à l’accessibilité et au parcours utilisateur.',
+    recruiterHighlight:
+      'Ce projet met en avant ma capacité à travailler en équipe sur un CMS, à personnaliser un site WordPress, à améliorer l’accessibilité et à répondre à un besoin concret d’association avec une logique orientée utilisateur.',
+    work: [
+      'Participation à la conception et à la réalisation d’un site vitrine WordPress en équipe',
+      'Ajout d’un moteur de recherche personnalisé via header.php, searchform.php et search.php',
+      'Création et intégration de pages utiles au parcours utilisateur : Contact, Don, Plan du site et page 404',
+      'Utilisation et paramétrage d’extensions WordPress comme Ninja Forms, WP Sitemap Page et des outils d’accessibilité',
+      'Adaptation du style avec Sass/CSS pour harmoniser le rendu avec la charte du site',
+      'Contribution à la mise en ligne et à l’amélioration globale de l’expérience utilisateur',
+    ],
+    duration: '2 mois',
+    context: 'Projet collectif Integra11y',
+    skills: [
+      'WordPress',
+      'Travail en équipe',
+      'Accessibilité web',
+      'Personnalisation de thème',
+      'Structure de contenu',
+      'Intégration front-end',
+    ],
+    stack: ['WordPress', 'PHP', 'SCSS', 'jQuery', 'Accessibilité'],
+    github: 'https://github.com/Integra11y-Session-2/projet-handisport.git',
     demo: '',
   },
 ]
