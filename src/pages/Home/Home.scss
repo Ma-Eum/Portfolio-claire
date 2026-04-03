@@ -4,7 +4,6 @@
 /* =========================
    GLOBAL PAGE
 ========================= */
-
 .home {
   position: relative;
   min-height: 100vh;
@@ -54,7 +53,6 @@
 /* =========================
    PETALS
 ========================= */
-
 .home__petals {
   position: absolute;
   inset: 0;
@@ -83,69 +81,15 @@
   animation-iteration-count: infinite;
 }
 
-.petal--1 {
-  left: 6%;
-  animation-duration: 19s;
-  animation-delay: -2s;
-}
-
-.petal--2 {
-  left: 16%;
-  animation-duration: 24s;
-  animation-delay: -9s;
-  width: 12px;
-  height: 9px;
-}
-
-.petal--3 {
-  left: 28%;
-  animation-duration: 21s;
-  animation-delay: -5s;
-}
-
-.petal--4 {
-  left: 42%;
-  animation-duration: 27s;
-  animation-delay: -14s;
-  width: 18px;
-  height: 12px;
-}
-
-.petal--5 {
-  left: 56%;
-  animation-duration: 23s;
-  animation-delay: -7s;
-}
-
-.petal--6 {
-  left: 68%;
-  animation-duration: 29s;
-  animation-delay: -17s;
-  width: 13px;
-  height: 9px;
-}
-
-.petal--7 {
-  left: 79%;
-  animation-duration: 22s;
-  animation-delay: -11s;
-}
-
-.petal--8 {
-  left: 88%;
-  animation-duration: 26s;
-  animation-delay: -6s;
-  width: 17px;
-  height: 11px;
-}
-
-.petal--9 {
-  left: 95%;
-  animation-duration: 31s;
-  animation-delay: -20s;
-  width: 11px;
-  height: 8px;
-}
+.petal--1 { left: 6%; animation-duration: 19s; animation-delay: -2s; }
+.petal--2 { left: 16%; animation-duration: 24s; animation-delay: -9s; width: 12px; height: 9px; }
+.petal--3 { left: 28%; animation-duration: 21s; animation-delay: -5s; }
+.petal--4 { left: 42%; animation-duration: 27s; animation-delay: -14s; width: 18px; height: 12px; }
+.petal--5 { left: 56%; animation-duration: 23s; animation-delay: -7s; }
+.petal--6 { left: 68%; animation-duration: 29s; animation-delay: -17s; width: 13px; height: 9px; }
+.petal--7 { left: 79%; animation-duration: 22s; animation-delay: -11s; }
+.petal--8 { left: 88%; animation-duration: 26s; animation-delay: -6s; width: 17px; height: 11px; }
+.petal--9 { left: 95%; animation-duration: 31s; animation-delay: -20s; width: 11px; height: 8px; }
 
 @keyframes sakura-drift {
   0% {
@@ -186,7 +130,6 @@
 /* =========================
    HERO
 ========================= */
-
 .home__hero {
   position: relative;
   margin-bottom: 4rem;
@@ -212,7 +155,6 @@
 /* =========================
    HERO TEXT
 ========================= */
-
 .home__eyebrow {
   margin: 0 0 $spacing-sm;
   color: $color-primary;
@@ -246,7 +188,6 @@
 /* =========================
    HIGHLIGHTS
 ========================= */
-
 .home__highlights {
   display: flex;
   flex-wrap: wrap;
@@ -269,7 +210,6 @@
 /* =========================
    BUTTONS
 ========================= */
-
 .home__hero-actions,
 .home__contact-actions {
   display: flex;
@@ -322,7 +262,6 @@
 /* =========================
    SECTIONS
 ========================= */
-
 .home__section {
   position: relative;
   margin-bottom: 4rem;
@@ -337,7 +276,6 @@
 /* =========================
    CARDS
 ========================= */
-
 .home__skills-grid,
 .home__value-list {
   display: grid;
@@ -394,7 +332,6 @@
 /* =========================
    PROJECTS
 ========================= */
-
 .home__projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -402,10 +339,28 @@
   align-items: stretch;
 }
 
+.home__project-item {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: homeProjectReveal 720ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--delay, 0ms);
+}
+
+@keyframes homeProjectReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* =========================
    CONTACT
 ========================= */
-
 .home__contact-text {
   max-width: 850px;
   margin: 0 0 $spacing-lg;
@@ -416,7 +371,6 @@
 /* =========================
    RESPONSIVE
 ========================= */
-
 @media (max-width: 900px) {
   .home {
     padding-block: $spacing-lg;
@@ -475,9 +429,18 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .home__petals .petal {
+  .home__petals .petal,
+  .home__project-item {
     animation: none;
+  }
+
+  .home__petals .petal {
     opacity: 0.18;
+  }
+
+  .home__project-item {
+    opacity: 1;
+    transform: none;
   }
 
   .home__button,

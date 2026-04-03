@@ -8,70 +8,61 @@ function ProjectCard({ project }) {
   return (
     <article className="project-card">
       <Link
-        className="project-card__media-link"
         to={`/project/${project.id}`}
+        className="project-card__media-link"
         aria-label={`Voir le détail du projet ${project.title}`}
       >
         <div className="project-card__media">
-          <img
-            src={project.image}
-            alt={`Aperçu du projet ${project.title}`}
-            className="project-card__image"
-          />
+          {project.image ? (
+            <img
+              className="project-card__image"
+              src={project.image}
+              alt={`Aperçu du projet ${project.title}`}
+            />
+          ) : (
+            <div className="project-card__image project-card__image--placeholder" aria-hidden="true" />
+          )}
 
-          <div className="project-card__overlay" aria-hidden="true" />
-
-          <span className="project-card__badge" aria-hidden="true">
+          <span className="project-card__overlay-icon" aria-hidden="true">
             ↗
           </span>
         </div>
       </Link>
 
-      <div className="project-card__content">
+      <div className="project-card__body">
         <p className="project-card__context">{project.context}</p>
 
-        <h3 className="project-card__title">
-          <Link
-            className="project-card__title-link"
-            to={`/project/${project.id}`}
-            aria-label={`Voir le détail du projet ${project.title}`}
-          >
-            {project.title}
-          </Link>
-        </h3>
+        <h3 className="project-card__title">{project.title}</h3>
 
         <p className="project-card__description">{project.shortDescription}</p>
 
-        <ul
-          className="project-card__stack"
-          aria-label={`Technologies du projet ${project.title}`}
-        >
+        <ul className="project-card__tags" aria-label={`Technologies utilisées pour ${project.title}`}>
           {project.stack.map((item) => (
             <li key={item} className="project-card__tag">
               {item}
             </li>
           ))}
         </ul>
-      </div>
 
-      <div className="project-card__actions">
-        <a
-          className="project-card__link project-card__link--secondary"
-          href={project.github}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={`Voir le code source du projet ${project.title} sur GitHub`}
-        >
-          Voir le code
-        </a>
+        <div className="project-card__actions">
+          {project.github ? (
+            <a
+              className="project-card__link project-card__link--secondary"
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Voir le code
+            </a>
+          ) : null}
 
-        <Link
-          className="project-card__link project-card__link--primary"
-          to={`/project/${project.id}`}
-          aria-label={`Voir le détail du projet ${project.title}`}
-        >
-          Voir le détail
-        </Link>
+          <Link
+            to={`/project/${project.id}`}
+            className="project-card__link project-card__link--primary"
+          >
+            Voir le détail
+          </Link>
+        </div>
       </div>
     </article>
   )
