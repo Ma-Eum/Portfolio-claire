@@ -462,7 +462,8 @@
    CARDS
 ========================= */
 .home__skills-grid,
-.home__value-list {
+.home__value-list,
+.home__contribution-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: $spacing-lg;
@@ -470,7 +471,8 @@
 
 .home__info-card,
 .home__value-item,
-.home__contact-card {
+.home__contact-card,
+.home__contribution-card {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -493,7 +495,8 @@
 
 .home__info-card:hover,
 .home__value-item:hover,
-.home__contact-card:hover {
+.home__contact-card:hover,
+.home__contribution-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 22px 50px rgba(94, 68, 168, 0.1);
   border-color: rgba(94, 68, 168, 0.18);
@@ -512,6 +515,14 @@
   margin: 0;
   color: $color-text-secondary;
   line-height: 1.7;
+}
+
+.home__contribution-number {
+  margin: 0 0 0.75rem;
+  color: rgba(94, 68, 168, 0.5);
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 /* =========================
@@ -659,6 +670,7 @@
   .home__info-card,
   .home__value-item,
   .home__contact-card,
+  .home__contribution-card,
   .home__featured-image {
     transition: none;
   }

@@ -131,7 +131,10 @@ function Home() {
                     alt={`Aperçu du projet ${featuredProject.title}`}
                   />
                 ) : (
-                  <div className="home__featured-image home__featured-image--placeholder" aria-hidden="true" />
+                  <div
+                    className="home__featured-image home__featured-image--placeholder"
+                    aria-hidden="true"
+                  />
                 )}
               </Link>
             </div>
@@ -230,6 +233,58 @@ function Home() {
                 <ProjectCard project={project} />
               </div>
             ))}
+          </div>
+        </section>
+
+        <section className="home__section home__section--contribution">
+          <div className="home__section-heading">
+            <div>
+              <p className="home__section-kicker">Valeur ajoutée</p>
+              <h2 className="home__section-title">Ce que je peux apporter à une équipe</h2>
+            </div>
+
+            <p className="home__section-intro">
+              Au-delà des outils, j’apporte une façon de travailler sérieuse, impliquée
+              et tournée vers la qualité du produit final.
+            </p>
+          </div>
+
+          <div className="home__contribution-grid">
+            <article className="home__contribution-card">
+              <p className="home__contribution-number">01</p>
+              <h3 className="home__card-title">Rigueur et sens de l’organisation</h3>
+              <p className="home__card-text">
+                Mon parcours m’a appris à travailler avec méthode, à structurer les
+                priorités et à avancer de façon fiable sur des tâches concrètes.
+              </p>
+            </article>
+
+            <article className="home__contribution-card">
+              <p className="home__contribution-number">02</p>
+              <h3 className="home__card-title">Attention à l’utilisateur</h3>
+              <p className="home__card-text">
+                Je veille à produire des interfaces compréhensibles, accessibles et
+                agréables à utiliser, avec un vrai souci de lisibilité et d’expérience.
+              </p>
+            </article>
+
+            <article className="home__contribution-card">
+              <p className="home__contribution-number">03</p>
+              <h3 className="home__card-title">Envie d’apprendre et de progresser</h3>
+              <p className="home__card-text">
+                Je suis dans une dynamique de progression continue, avec l’envie de
+                consolider mes acquis, recevoir du feedback et monter en compétence en équipe.
+              </p>
+            </article>
+
+            <article className="home__contribution-card">
+              <p className="home__contribution-number">04</p>
+              <h3 className="home__card-title">Code propre et maintenable</h3>
+              <p className="home__card-text">
+                J’accorde de l’importance à la clarté du code, à la structure des composants
+                et à une base de travail compréhensible pour la suite du projet.
+              </p>
+            </article>
           </div>
         </section>
 
