@@ -2,122 +2,118 @@ import { Link, useParams } from 'react-router-dom'
 import projects from '../../data/projects'
 import './Project.scss'
 
-// Page de détail projet.
-// L'id est récupéré depuis l'URL grâce à useParams().
-// On cherche ensuite le projet correspondant dans la source de données.
-// Si aucun projet n'est trouvé, on affiche un message clair.
 function Project() {
   const { id } = useParams()
-
   const project = projects.find((item) => item.id === id)
 
   if (!project) {
     return (
-      <main id="main-content" className="project">
+      <section className="project project--not-found">
         <div className="container">
-          <h1 className="project__title">Projet introuvable</h1>
-          <p className="project__text">
-            Le projet demandé n’existe pas ou n’est pas encore disponible.
-          </p>
+          <p className="project__context">Projet introuvable</p>
+          <h1 className="project__title">Ce projet n’existe pas ou n’est pas encore disponible.</h1>
 
-          <Link className="project__back-link" to="/">
-            Retour aux projets
-          </Link>
+          <div className="project__actions">
+            <Link to="/" className="project__back-link">
+              Retour aux projets
+            </Link>
+          </div>
         </div>
-      </main>
+      </section>
     )
   }
 
   return (
-    <main id="main-content" className="project">
+    <section className="project project--enhanced">
       <div className="container">
-        <p className="project__context">{project.context}</p>
+        <header className="project__hero">
+          <p className="project__context">{project.context}</p>
+          <h1 className="project__title">{project.title}</h1>
+          <p className="project__meta">Durée estimée : {project.duration}</p>
 
-        <h1 className="project__title">{project.title}</h1>
+          {project.image ? (
+            <img
+              className="project__image"
+              src={project.image}
+              alt={`Aperçu du projet ${project.title}`}
+            />
+          ) : null}
+        </header>
 
-        <img
-          src={project.image}
-          alt={`Aperçu du projet ${project.title}`}
-          className="project__image"
-        />
+        <div className="project__grid">
+          <article className="project__content">
+            <section className="project__section project__section--intro">
+              <h2 className="project__section-title">Présentation</h2>
+              <p className="project__text">{project.fullDescription}</p>
+            </section>
 
-        <p className="project__meta">
-          <strong>Durée estimée :</strong> {project.duration}
-        </p>
+            <section className="project__section">
+              <h2 className="project__section-title">Ce que ce projet montre</h2>
+              <p className="project__text">{project.recruiterHighlight}</p>
+            </section>
 
-        {/* Sections de contenu du projet :
-            on sépare la présentation, la valeur démontrée,
-            le travail réalisé, les compétences mobilisées
-            et la stack technique pour garder une lecture claire et structurée. */}
-        <section className="project__section" aria-labelledby="project-description-title">
-          <h2 id="project-description-title" className="project__section-title">
-            Présentation
-          </h2>
-          <p className="project__text">{project.fullDescription}</p>
-        </section>
+            <section className="project__section">
+              <h2 className="project__section-title">Ce que j’ai réalisé</h2>
+              <ul className="project__list">
+                {project.work.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
 
-        <section className="project__section" aria-labelledby="project-recruiter-title">
-          <h2 id="project-recruiter-title" className="project__section-title">
-            Ce que ce projet montre
-          </h2>
-          <p className="project__text">{project.recruiterHighlight}</p>
-        </section>
+            <section className="project__section">
+              <h2 className="project__section-title">Compétences mobilisées</h2>
+              <ul className="project__list">
+                {project.skills.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
+              </ul>
+            </section>
+          </article>
 
-        <section className="project__section" aria-labelledby="project-work-title">
-          <h2 id="project-work-title" className="project__section-title">
-            Ce que j’ai réalisé
-          </h2>
+          <aside className="project__side">
+            <section className="project__section project__section--sticky">
+              <h2 className="project__section-title">Stack</h2>
+              <ul className="project__tags">
+                {project.stack.map((item) => (
+                  <li key={item} className="project__tag">
+                    {item}
+                  </li>
+                ))}
+              </ul>
 
-          <ul className="project__list">
-            {project.work.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </section>
+              <div className="project__actions">
+                {project.github ? (
+                  <a
+                    className="project__link project__link--primary"
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Voir le code
+                  </a>
+                ) : null}
 
-        <section className="project__section" aria-labelledby="project-skills-title">
-          <h2 id="project-skills-title" className="project__section-title">
-            Compétences mobilisées
-          </h2>
+                {project.demo ? (
+                  <a
+                    className="project__link project__link--secondary"
+                    href={project.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Voir le projet
+                  </a>
+                ) : null}
 
-          <ul className="project__list">
-            {project.skills.map((skill) => (
-              <li key={skill}>{skill}</li>
-            ))}
-          </ul>
-        </section>
-
-        <section className="project__section" aria-labelledby="project-stack-title">
-          <h2 id="project-stack-title" className="project__section-title">
-            Stack
-          </h2>
-
-          <ul className="project__tags" aria-label={`Stack technique du projet ${project.title}`}>
-            {project.stack.map((item) => (
-              <li key={item} className="project__tag">
-                {item}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <div className="project__actions">
-          <a
-            className="project__link project__link--secondary"
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={`Voir le code source du projet ${project.title} sur GitHub`}
-          >
-            Voir le code
-          </a>
-
-          <Link className="project__link project__link--primary" to="/">
-            Retour aux projets
-          </Link>
+                <Link to="/" className="project__back-link">
+                  Retour aux projets
+                </Link>
+              </div>
+            </section>
+          </aside>
         </div>
       </div>
-    </main>
+    </section>
   )
 }
 
