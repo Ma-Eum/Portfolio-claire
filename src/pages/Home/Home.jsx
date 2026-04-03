@@ -29,20 +29,34 @@ function Home() {
         <section className="home__hero">
           <div className="home__hero-content">
             <p className="home__eyebrow">Portfolio développeuse front-end</p>
-            <h1 className="home__title">Claire Gachelin</h1>
-            <p className="home__subtitle">Développeuse Front-End React</p>
+
+            <h1 className="home__title">
+              Claire Gachelin
+            </h1>
+
+            <p className="home__subtitle">
+              Développeuse Front-End React • Interfaces accessibles, soignées et maintenables
+            </p>
 
             <p className="home__intro">
-              Je conçois des interfaces accessibles, lisibles et élégantes, en accordant
-              une attention particulière à l’expérience utilisateur, à la structure du
-              code et à la qualité des interactions.
+              En reconversion vers le développement web, j’ai construit ce portfolio pour
+              présenter des projets qui illustrent ma progression, ma rigueur et ma manière
+              de travailler. Je développe des interfaces front-end pensées pour être
+              lisibles, structurées, accessibles et agréables à utiliser.
+            </p>
+
+            <p className="home__intro">
+              Mon objectif aujourd’hui est d’intégrer une équipe où je pourrai contribuer
+              concrètement à des produits utiles, continuer à progresser en React et
+              apporter une vraie attention à la qualité du rendu, à l’expérience utilisateur
+              et à la clarté du code.
             </p>
 
             <ul className="home__highlights">
               <li>React et architecture de composants</li>
-              <li>Intégration responsive et interfaces lisibles</li>
+              <li>Intégration responsive et fidélité visuelle</li>
               <li>Accessibilité et navigation clavier</li>
-              <li>API, debug et amélioration continue</li>
+              <li>API, refactor, debug et qualité front-end</li>
             </ul>
 
             <div className="home__hero-actions">
