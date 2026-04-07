@@ -1,4 +1,5 @@
 import { Link, Navigate, useParams } from 'react-router-dom'
+import SakuraPetals from '../../components/SakuraPetals/SakuraPetals'
 import projects from '../../data/projects'
 import './Project.scss'
 
@@ -16,7 +17,9 @@ function Project() {
 
   return (
     <main id="main-content" className="project project--enhanced">
-      <div className="container">
+      <SakuraPetals />
+
+      <div className="container project__container">
         <header className="project__hero">
           <p className="project__context">{project.context}</p>
           <h1 className="project__title">{project.title}</h1>
@@ -116,7 +119,10 @@ function Project() {
           </div>
 
           <div className="project__pagination-item project__pagination-item--center">
-            <Link to="/projects" className="project__pagination-link project__pagination-link--center">
+            <Link
+              to="/projects"
+              className="project__pagination-link project__pagination-link--center"
+            >
               Tous les projets
             </Link>
           </div>

@@ -1,13 +1,25 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+/* =========================
+   PAGE PROJETS
+========================= */
 .projects-page {
   position: relative;
+  z-index: 1;
   min-height: 100vh;
   padding-block: $spacing-xl $spacing-3xl;
   background: $color-background;
 }
 
+.projects-page__container {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   HEADER
+========================= */
 .projects-page__header {
   margin-bottom: $spacing-2xl;
 }
@@ -26,15 +38,18 @@
   line-height: 1.75;
 }
 
+/* =========================
+   PANEL PROJETS
+========================= */
 .projects-page__panel {
   padding: $spacing-xl;
+  border: 1px solid $color-border-soft;
   border-radius: $radius-2xl;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.92) 0%,
     rgba(255, 255, 255, 0.86) 100%
   );
-  border: 1px solid $color-border-soft;
   box-shadow: $shadow-card;
 }
 
@@ -49,6 +64,9 @@
   min-width: 0;
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
 @include mobile {
   .projects-page {
     padding-block: $spacing-lg $spacing-2xl;

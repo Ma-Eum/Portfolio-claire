@@ -1,12 +1,12 @@
+import SakuraPetals from '../../components/SakuraPetals/SakuraPetals'
 import './About.scss'
 
-// La page About complète la page d'accueil.
-// Elle permet de raconter le parcours, le positionnement professionnel
-// et la manière de travailler, sans répéter simplement la liste des projets.
 function About() {
   return (
-    <div className="about">
-      <div className="container">
+    <main id="main-content" className="about">
+      <SakuraPetals />
+
+      <div className="container about__container">
         <section className="about__intro">
           <h1 className="about__title">À propos</h1>
 
@@ -77,7 +77,7 @@ function About() {
           </p>
         </section>
       </div>
-    </div>
+    </main>
   )
 }
 

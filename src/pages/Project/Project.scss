@@ -5,7 +5,14 @@
    PAGE PROJET
 ========================= */
 .project {
+  position: relative;
+  z-index: 1;
   padding-block: clamp(2.5rem, 4vw, 4.5rem);
+}
+
+.project__container {
+  position: relative;
+  z-index: 2;
 }
 
 .project--not-found {
@@ -255,7 +262,6 @@
 
 /* =========================
    PAGINATION ENTRE PROJETS
-   Harmonisée avec le header
 ========================= */
 .project__pagination {
   display: flex;

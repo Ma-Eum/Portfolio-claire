@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import ProjectCard from '../../components/ProjectCard/ProjectCard'
+import SakuraPetals from '../../components/SakuraPetals/SakuraPetals'
 import projects from '../../data/projects'
 import './Home.scss'
 
@@ -13,17 +14,7 @@ function Home() {
     <div className="home">
       <div className="home__background" aria-hidden="true" />
 
-      <div className="home__petals" aria-hidden="true">
-        <span className="petal petal--1" />
-        <span className="petal petal--2" />
-        <span className="petal petal--3" />
-        <span className="petal petal--4" />
-        <span className="petal petal--5" />
-        <span className="petal petal--6" />
-        <span className="petal petal--7" />
-        <span className="petal petal--8" />
-        <span className="petal petal--9" />
-      </div>
+      <SakuraPetals /> 
 
       <div className="container home__container">
         <section className="home__hero">

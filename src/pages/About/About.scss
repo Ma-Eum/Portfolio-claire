@@ -1,15 +1,33 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+/* =========================
+   PAGE ABOUT
+========================= */
 .about {
+  position: relative;
+  z-index: 1;
   padding-block: $spacing-xl;
+  min-height: 100vh;
+  background: $color-background;
 }
 
+.about__container {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================
+   STRUCTURE
+========================= */
 .about__intro,
 .about__section {
   margin-bottom: 3rem;
 }
 
+/* =========================
+   TITRES & TEXTES
+========================= */
 .about__title {
   margin: 0 0 $spacing-lg;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -31,6 +49,9 @@
   line-height: 1.75;
 }
 
+/* =========================
+   PANEL
+========================= */
 .about__panel {
   padding: clamp(1.25rem, 2vw, 1.8rem);
   border-radius: 30px;
@@ -60,6 +81,9 @@
   line-height: 1.75;
 }
 
+/* =========================
+   GRID
+========================= */
 .about__grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -67,6 +91,9 @@
   align-items: stretch;
 }
 
+/* =========================
+   CARDS
+========================= */
 .about__card {
   position: relative;
   display: flex;
@@ -119,7 +146,6 @@
   color: rgba(94, 68, 168, 0.48);
   font-size: 2rem;
   font-weight: 800;
-  line-height: 1;
 }
 
 .about__card-title {
@@ -128,7 +154,6 @@
   margin: 0 0 $spacing-sm;
   min-height: 3.4rem;
   font-size: 1.15rem;
-  line-height: 1.4;
   color: $color-primary;
 }
 
@@ -140,6 +165,9 @@
   line-height: 1.75;
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 560px) {
   .about__panel {
     padding: 1.5rem 1rem;
@@ -155,6 +183,9 @@
   }
 }
 
+/* =========================
+   RÉDUCTION DES ANIMATIONS
+========================= */
 @media (prefers-reduced-motion: reduce) {
   .about__card {
     transition: none;
