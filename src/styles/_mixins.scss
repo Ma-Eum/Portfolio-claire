@@ -1,8 +1,14 @@
 @use './variables' as *;
 
 // ==============================
-// Mixins responsive
+// Responsive
 // ==============================
+
+@mixin mobile-sm {
+  @media (max-width: $breakpoint-mobile-sm) {
+    @content;
+  }
+}
 
 @mixin mobile {
   @media (max-width: $breakpoint-mobile) {
@@ -16,35 +22,93 @@
   }
 }
 
+@mixin tablet-and-down {
+  @media (max-width: $breakpoint-tablet) {
+    @content;
+  }
+}
+
 @mixin desktop {
   @media (min-width: #{$breakpoint-tablet + 1px}) {
     @content;
   }
 }
 
+@mixin desktop-lg {
+  @media (min-width: $breakpoint-desktop-lg) {
+    @content;
+  }
+}
+
 // ==============================
-// Mixins réutilisables UI
+// Helpers UI
 // ==============================
+
+@mixin focus-ring {
+  outline: 3px solid $color-focus;
+  outline-offset: 3px;
+}
 
 @mixin button-base {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-height: 44px;
-  padding: 0.75rem 1rem;
-  border-radius: $radius-sm;
-  font-weight: 600;
+  padding: 0.82rem 1.1rem;
+  border-radius: $radius-md;
+  border: 1px solid transparent;
+  font-weight: 700;
+  text-decoration: none;
   text-align: center;
+  line-height: 1.2;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
 }
 
 @mixin card-base {
-  background-color: $color-surface;
   border: 1px solid $color-border;
-  border-radius: $radius-md;
+  border-radius: $radius-xl;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 255, 255, 0.92) 100%
+  );
   box-shadow: $shadow-card;
+  backdrop-filter: blur(12px);
 }
 
-@mixin focus-ring {
-  outline: 3px solid $color-focus;
-  outline-offset: 3px;
+@mixin glass-panel {
+  border: 1px solid $color-border-soft;
+  border-radius: $radius-xl;
+  background: linear-gradient(
+    135deg,
+    $color-hero-overlay-start 0%,
+    $color-hero-overlay-middle 48%,
+    $color-hero-overlay-end 100%
+  );
+  box-shadow: $shadow-card;
+  backdrop-filter: blur(10px);
+}
+
+@mixin section-title {
+  margin: 0 0 $spacing-sm;
+  color: $color-text;
+  font-size: clamp(1.65rem, 2vw, 2.2rem);
+  line-height: 1.2;
+}
+
+@mixin section-text {
+  margin: 0;
+  color: $color-text-secondary;
+  line-height: 1.75;
+}
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
 }
