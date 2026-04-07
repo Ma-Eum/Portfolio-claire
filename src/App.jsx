@@ -24,9 +24,9 @@ function AnimatedRoutes() {
 
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Project />} />
+        <Route path="/projects" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/project/:slug" element={<Project />} />
+        <Route path="/project/:id" element={<Project />} />
         <Route path="/404" element={<NotFound />} />
         <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>

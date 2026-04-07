@@ -3,8 +3,8 @@ import projects from '../../data/projects'
 import './Project.scss'
 
 function Project() {
-  const { slug } = useParams()
-  const project = projects.find((item) => item.slug === slug)
+  const { id } = useParams()
+  const project = projects.find((item) => item.id === id)
 
   if (!project) {
     return <Navigate to="/404" replace />
