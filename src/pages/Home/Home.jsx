@@ -14,39 +14,41 @@ function Home() {
     <div className="home">
       <div className="home__background" aria-hidden="true" />
 
-      <SakuraPetals /> 
+      <SakuraPetals />
 
       <div className="container home__container">
-        <section className="home__hero">
+        <section className="home__hero" aria-labelledby="home-title">
           <div className="home__hero-content">
-            <p className="home__eyebrow">Portfolio développeuse front-end</p>
+            <p className="home__eyebrow">Développeuse Front-End React</p>
 
-            <h1 className="home__title">Claire Gachelin</h1>
+            <h1 id="home-title" className="home__title">
+              Claire Gachelin
+            </h1>
 
             <p className="home__subtitle">
-              Développeuse Front-End React • Interfaces accessibles, soignées et
-              maintenables
+              Interfaces accessibles, soignées et maintenables
             </p>
 
             <p className="home__intro">
-              En reconversion vers le développement web, j’ai construit ce portfolio pour
-              présenter des projets qui illustrent ma progression, ma rigueur et ma manière
-              de travailler. Je développe des interfaces front-end pensées pour être
-              lisibles, structurées, accessibles et agréables à utiliser.
+              En reconversion dans le développement web, je conçois des interfaces
+              front-end lisibles, responsive et accessibles, avec une attention
+              particulière portée à l’expérience utilisateur, à la clarté du code et à la
+              qualité d’intégration.
             </p>
 
             <p className="home__intro">
-              Mon objectif aujourd’hui est d’intégrer une équipe où je pourrai contribuer
-              concrètement à des produits utiles, continuer à progresser en React et
-              apporter une vraie attention à la qualité du rendu, à l’expérience utilisateur
-              et à la clarté du code.
+              À travers mes projets, je démontre une progression concrète en React,
+              JavaScript, intégration, consommation d’API, débogage, tests et refactor.
+              Mon objectif est aujourd’hui de rejoindre une équipe où je pourrai
+              contribuer à des interfaces utiles, continuer à progresser et apporter un
+              travail rigoureux, fiable et structuré.
             </p>
 
             <ul className="home__highlights">
               <li>React et architecture de composants</li>
               <li>Intégration responsive et fidélité visuelle</li>
               <li>Accessibilité et navigation clavier</li>
-              <li>API, refactor, debug et qualité front-end</li>
+              <li>API, debug, tests et refactor</li>
             </ul>
 
             <div className="home__hero-actions">
@@ -114,6 +116,7 @@ function Home() {
                     target="_blank"
                     rel="noreferrer"
                     className="home__button home__button--secondary"
+                    aria-label={`Voir le code du projet ${featuredProject.title} sur GitHub`}
                   >
                     Voir le code
                   </a>
@@ -144,79 +147,102 @@ function Home() {
           </div>
         </section>
 
-        <section id="skills" className="home__section">
-          <h2 className="home__section-title">Compétences clés</h2>
+        <section
+          id="skills"
+          className="home__section"
+          aria-labelledby="skills-title"
+        >
+          <h2 id="skills-title" className="home__section-title">
+            Compétences clés
+          </h2>
 
           <div className="home__skills-grid">
             <article className="home__info-card">
               <h3 className="home__card-title">Front-end React</h3>
               <p className="home__card-text">
-                Construction d’interfaces en composants, structuration du code,
-                navigation, organisation des pages et logique de réutilisation.
+                Développement d’interfaces en React avec une logique de composants
+                réutilisables, une organisation claire du code et une attention portée à
+                la maintenabilité.
               </p>
             </article>
 
             <article className="home__info-card">
               <h3 className="home__card-title">Intégration et responsive</h3>
               <p className="home__card-text">
-                Transformation de maquettes en interfaces lisibles, adaptables et
-                cohérentes sur différents formats d’écran.
+                Intégration de maquettes en interfaces web fidèles, adaptables aux
+                différents formats d’écran et pensées pour garantir une lecture fluide sur
+                desktop, tablette et mobile.
               </p>
             </article>
 
             <article className="home__info-card">
               <h3 className="home__card-title">API et données</h3>
               <p className="home__card-text">
-                Exploitation de données, affichage dynamique, structuration
-                d’informations et mise en avant de la lisibilité pour l’utilisateur.
+                Consommation d’API, affichage dynamique des données et structuration des
+                informations pour une restitution claire et compréhensible côté
+                utilisateur.
               </p>
             </article>
 
             <article className="home__info-card">
               <h3 className="home__card-title">Accessibilité et qualité</h3>
               <p className="home__card-text">
-                Sensibilité à l’accessibilité, au focus clavier, à la structure
-                sémantique et à une expérience de navigation plus inclusive.
+                Prise en compte de l’accessibilité dès la conception : structure
+                sémantique, navigation clavier, lisibilité et attention portée à la
+                qualité front-end.
               </p>
             </article>
           </div>
         </section>
 
-        <section className="home__section">
-          <h2 className="home__section-title">Ce que mes projets montrent</h2>
+        <section
+          className="home__section"
+          aria-labelledby="projects-value-title"
+        >
+          <h2 id="projects-value-title" className="home__section-title">
+            Ce que mes projets montrent
+          </h2>
 
           <div className="home__value-list">
             <article className="home__value-item">
               <h3 className="home__card-title">Une progression structurée</h3>
               <p className="home__card-text">
-                Mes projets montrent une montée en compétences progressive :
-                intégration, JavaScript, accessibilité, React, API, tests, debug et
-                refactor.
+                Mes projets montrent une montée en compétences cohérente, de
+                l’intégration HTML/CSS jusqu’au développement d’interfaces React, à la
+                consommation d’API, au debug, aux tests et au refactor.
               </p>
             </article>
 
             <article className="home__value-item">
               <h3 className="home__card-title">Une logique de travail claire</h3>
               <p className="home__card-text">
-                J’accorde de l’importance à l’organisation du code, à la lisibilité,
-                à la maintenabilité et à la compréhension par d’autres développeurs.
+                J’accorde une importance particulière à l’organisation du code, à sa
+                lisibilité et à sa maintenabilité, afin de produire des interfaces
+                compréhensibles et durables.
               </p>
             </article>
 
             <article className="home__value-item">
               <h3 className="home__card-title">Un potentiel opérationnel</h3>
               <p className="home__card-text">
-                Mon objectif est de transformer cette base solide en expérience
-                concrète en équipe, sur des interfaces utiles et bien conçues.
+                Mon objectif est désormais de transformer cette base solide en expérience
+                concrète en équipe, sur des interfaces utiles, accessibles et bien
+                conçues.
               </p>
             </article>
           </div>
         </section>
 
-        <section id="projects" className="home__section home__section--projects">
+        <section
+          id="projects"
+          className="home__section home__section--projects"
+          aria-labelledby="projects-title"
+        >
           <div className="home__projects-panel">
             <div className="home__projects-header">
-              <h2 className="home__section-title">Projets</h2>
+              <h2 id="projects-title" className="home__section-title">
+                Projets
+              </h2>
 
               <p className="home__projects-intro">
                 Des projets qui illustrent concrètement ma progression en développement
@@ -239,14 +265,19 @@ function Home() {
           </div>
         </section>
 
-        <section className="home__section home__section--contribution">
+        <section
+          className="home__section home__section--contribution"
+          aria-labelledby="contribution-title"
+        >
           <div className="home__contribution-panel">
             <div className="home__contribution-header">
-              <h2 className="home__section-title">Ce que je peux apporter à une équipe</h2>
+              <h2 id="contribution-title" className="home__section-title">
+                Ce que je peux apporter à une équipe
+              </h2>
 
               <p className="home__contribution-intro">
-                Au-delà des outils, j’apporte une façon de travailler sérieuse, impliquée
-                et tournée vers la qualité du produit final.
+                Au-delà des outils, j’apporte une manière de travailler sérieuse,
+                impliquée et tournée vers la qualité du produit final.
               </p>
             </div>
 
@@ -265,7 +296,8 @@ function Home() {
                 <h3 className="home__card-title">Attention à l’utilisateur</h3>
                 <p className="home__card-text">
                   Je veille à produire des interfaces compréhensibles, accessibles et
-                  agréables à utiliser, avec un vrai souci de lisibilité et d’expérience.
+                  agréables à utiliser, avec un vrai souci de lisibilité et
+                  d’expérience utilisateur.
                 </p>
               </article>
 
@@ -274,8 +306,8 @@ function Home() {
                 <h3 className="home__card-title">Envie d’apprendre et de progresser</h3>
                 <p className="home__card-text">
                   Je suis dans une dynamique de progression continue, avec l’envie de
-                  consolider mes acquis, recevoir du feedback et monter en compétence en
-                  équipe.
+                  consolider mes acquis, de recevoir du feedback et de monter en
+                  compétence en équipe.
                 </p>
               </article>
 
@@ -292,13 +324,16 @@ function Home() {
           </div>
         </section>
 
-        <section className="home__section">
+        <section className="home__section" aria-labelledby="contact-title">
           <div className="home__contact-card">
-            <h2 className="home__section-title">Travaillons ensemble</h2>
+            <h2 id="contact-title" className="home__section-title">
+              Travaillons ensemble
+            </h2>
+
             <p className="home__contact-text">
-              Je recherche une opportunité pour continuer à évoluer en développement
-              front-end, contribuer à des interfaces web utiles et consolider mes
-              compétences React au sein d’une équipe.
+              Je recherche aujourd’hui une opportunité en front-end React pour
+              contribuer à des interfaces accessibles, utiles et bien construites, tout
+              en continuant à progresser au sein d’une équipe.
             </p>
 
             <div className="home__contact-actions">
@@ -308,11 +343,13 @@ function Home() {
               >
                 Me contacter par email
               </a>
+
               <a
-                href="https://www.linkedin.com"
+                href="https://www.linkedin.com/in/claire-gachelin"
                 target="_blank"
                 rel="noreferrer"
                 className="home__button home__button--secondary"
+                aria-label="Voir mon profil LinkedIn"
               >
                 Voir mon LinkedIn
               </a>
