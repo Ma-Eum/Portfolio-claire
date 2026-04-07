@@ -6,6 +6,8 @@
 $color-background: #f6f0f3;
 $color-background-alt: #fbf7f9;
 $color-background-soft: #f8f1f5;
+$color-background-deep: #f2e8ee;
+
 $color-surface: #ffffff;
 $color-surface-soft: rgba(255, 255, 255, 0.72);
 $color-surface-glass: rgba(255, 255, 255, 0.58);
@@ -14,6 +16,7 @@ $color-surface-glass-strong: rgba(255, 255, 255, 0.84);
 $color-text: #2f2437;
 $color-text-secondary: #51465c;
 $color-text-muted: #6b6073;
+$color-title: $color-text;
 
 $color-border: rgba(94, 68, 168, 0.14);
 $color-border-soft: rgba(94, 68, 168, 0.1);
@@ -39,6 +42,16 @@ $color-page-glow-left: rgba(255, 224, 236, 0.58);
 $color-page-glow-right: rgba(215, 198, 255, 0.34);
 $color-page-glow-bottom: rgba(255, 235, 244, 0.22);
 
+$color-page-overlay-top: rgba(255, 255, 255, 0.24);
+$color-page-overlay-mid: rgba(255, 255, 255, 0.1);
+$color-page-overlay-bottom: rgba(255, 255, 255, 0.18);
+
+// ---------- Pétales ----------
+$color-petal-light: #ffe7f0;
+$color-petal-mid: #f7c4da;
+$color-petal-deep: #ea9cbf;
+$color-petal-shadow: rgba(234, 156, 191, 0.18);
+
 // ---------- Tags ----------
 $color-tag-background: rgba(94, 68, 168, 0.08);
 $color-tag-background-strong: rgba(94, 68, 168, 0.12);
@@ -56,11 +69,38 @@ $color-button-secondary-background-hover: rgba(255, 255, 255, 0.96);
 $color-button-secondary-text: $color-primary;
 $color-button-secondary-border: $color-border-strong;
 
-// ---------- Header / Footer ----------
-$color-header-background-start: rgba(94, 68, 168, 0.78);
-$color-header-background-end: rgba(236, 228, 238, 0.95);
+// ---------- Header ----------
+$color-header-background-top: rgba(233, 224, 241, 0.94);
+$color-header-background-bottom: rgba(222, 210, 235, 0.9);
 $color-header-border: rgba(94, 68, 168, 0.16);
+$color-header-shadow: rgba(94, 68, 168, 0.08);
 
+$color-header-role: rgba(58, 47, 71, 0.72);
+
+$color-header-toggle-background: rgba(255, 255, 255, 0.42);
+$color-header-toggle-border: rgba(94, 68, 168, 0.16);
+$color-header-toggle-shadow: rgba(94, 68, 168, 0.08);
+
+$color-header-nav-background: rgba(255, 255, 255, 0.22);
+$color-header-nav-border: rgba(94, 68, 168, 0.12);
+$color-header-nav-highlight: rgba(255, 255, 255, 0.32);
+
+$color-header-link: rgba(67, 49, 110, 0.86);
+$color-header-link-hover-background: rgba(255, 255, 255, 0.46);
+
+$color-header-link-active-start: rgba(98, 69, 191, 0.98);
+$color-header-link-active-end: rgba(114, 85, 205, 0.94);
+$color-header-link-active-start-hover: rgba(98, 69, 191, 1);
+$color-header-link-active-end-hover: rgba(114, 85, 205, 0.98);
+$color-header-link-active-text: #ffffff;
+$color-header-link-active-shadow: rgba(94, 68, 168, 0.22);
+
+$color-header-mobile-panel-top: rgba(244, 239, 248, 0.97);
+$color-header-mobile-panel-bottom: rgba(231, 222, 240, 0.96);
+$color-header-mobile-panel-shadow: rgba(58, 40, 103, 0.16);
+$color-header-mobile-link-background: rgba(255, 255, 255, 0.56);
+
+// ---------- Footer ----------
 $color-footer-background-start: rgba(245, 235, 242, 0.94);
 $color-footer-background-end: rgba(229, 215, 232, 0.96);
 $color-footer-border: rgba(94, 68, 168, 0.14);
@@ -108,7 +148,9 @@ $project-card-image-height-mobile: 200px;
 
 // ---------- Breakpoints ----------
 $breakpoint-mobile-sm: 420px;
+$breakpoint-mobile-alt: 560px;
 $breakpoint-mobile: 768px;
+$breakpoint-notfound-stack: 900px;
 $breakpoint-tablet: 1100px;
 $breakpoint-desktop-lg: 1360px;
 
@@ -123,16 +165,8 @@ $color-notfound-overlay-6: rgba(246, 240, 243, 0.34);
 $color-notfound-kanji: $color-primary;
 $color-notfound-kanji-soft: rgba(94, 68, 168, 0.42);
 $color-notfound-kanji-mobile: rgba(94, 68, 168, 0.28);
-
-// Remplace l'ancienne variable inexistante $color-accent-rose
 $color-notfound-accent: $color-primary;
 
-// Couleurs des pétales
-$color-petal-light: #ffe7f0;
-$color-petal-mid: #f7c4da;
-$color-petal-deep: #ea9cbf;
-
-// Dimensions générales
 $notfound-content-max-width: 1280px;
 $notfound-content-min-height: 720px;
 $notfound-content-min-height-tablet: 680px;
@@ -141,30 +175,23 @@ $notfound-content-min-height-mobile-sm: 700px;
 
 $notfound-text-max-width: 620px;
 
-// Espacements de la zone texte
 $notfound-text-padding-desktop: 4.5rem 4.5rem 4rem 2.5rem;
 $notfound-text-padding-tablet: 4rem 3rem 3.5rem 2rem;
 $notfound-text-padding-mobile: 3rem 2rem 2.5rem;
 $notfound-text-padding-mobile-sm: 2.2rem 1.25rem 1.5rem;
 
-// Kanji
 $notfound-kanji-top-desktop: -0.6rem;
 $notfound-kanji-right-desktop: 0.4rem;
 $notfound-kanji-top-mobile: 0.6rem;
 $notfound-kanji-right-mobile: 0.8rem;
 
-// Typographie
 $notfound-eyebrow-size: 0.92rem;
 $notfound-eyebrow-size-mobile: 0.8rem;
+
 $notfound-description-size: 1.22rem;
 $notfound-description-size-tablet: 1.12rem;
 $notfound-description-size-mobile: 1.05rem;
 $notfound-description-size-mobile-sm: 0.98rem;
 
-// Boutons
 $notfound-button-min-height: 56px;
 $notfound-button-padding-inline: 1.6rem;
-
-// Breakpoint intermédiaire spécifique à la 404
-$breakpoint-notfound-stack: 900px;
-$breakpoint-mobile-alt: 560px;
