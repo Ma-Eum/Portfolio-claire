@@ -147,6 +147,29 @@
   line-height: 1.3;
 }
 
+/* Lien sur le titre */
+.project-card__title-link {
+  display: inline-block;
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+/* Hover aligné avec l’effet card */
+.project-card__title-link:hover {
+  color: $color-primary;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Effet bonus : quand on survole toute la card */
+.project-card:hover .project-card__title-link {
+  color: $color-primary;
+}
+
 .project-card__description {
   margin: 0 0 1rem;
   color: $color-text-secondary;

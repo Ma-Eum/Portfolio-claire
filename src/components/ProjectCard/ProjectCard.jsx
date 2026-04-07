@@ -32,7 +32,14 @@ function ProjectCard({ project }) {
       <div className="project-card__body">
         <p className="project-card__context">{project.context}</p>
 
-        <h3 className="project-card__title">{project.title}</h3>
+        <h3 className="project-card__title">
+          <Link
+            to={`/project/${project.id}`}
+            className="project-card__title-link"
+          >
+            {project.title}
+          </Link>
+        </h3>
 
         <p className="project-card__description">{project.shortDescription}</p>
 
