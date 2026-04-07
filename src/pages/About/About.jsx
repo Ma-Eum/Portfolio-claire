@@ -1,8 +1,11 @@
+import SakuraPetals from '../../components/SakuraPetals/SakuraPetals'
 import './About.scss'
 
 function About() {
   return (
     <div className="about">
+      <SakuraPetals />
+
       <div className="container about__container">
         <section className="about__intro" aria-labelledby="about-title">
           <h1 id="about-title" className="about__title">
@@ -29,10 +32,7 @@ function About() {
           </p>
         </section>
 
-        <section
-          className="about__section"
-          aria-labelledby="about-positioning-title"
-        >
+        <section className="about__section" aria-labelledby="about-positioning-title">
           <div className="about__panel">
             <div className="about__panel-header">
               <h2 id="about-positioning-title" className="about__section-title">
@@ -90,10 +90,7 @@ function About() {
           </div>
         </section>
 
-        <section
-          className="about__section"
-          aria-labelledby="about-value-title"
-        >
+        <section className="about__section" aria-labelledby="about-value-title">
           <div className="about__panel">
             <div className="about__panel-header">
               <h2 id="about-value-title" className="about__section-title">
@@ -149,10 +146,7 @@ function About() {
           </div>
         </section>
 
-        <section
-          className="about__section"
-          aria-labelledby="about-goal-title"
-        >
+        <section className="about__section" aria-labelledby="about-goal-title">
           <div className="about__panel">
             <div className="about__panel-header">
               <h2 id="about-goal-title" className="about__section-title">
@@ -175,8 +169,7 @@ function About() {
               Mon parcours de reconversion m’a permis de développer une méthode de travail
               sérieuse, rigoureuse et orientée progression. Je souhaite désormais mettre
               cette énergie au service de projets réels, avec une attention particulière
-              portée à la qualité du rendu, à la lisibilité et à l’expérience
-              utilisateur.
+              portée à la qualité du rendu, à la lisibilité et à l’expérience utilisateur.
             </p>
           </div>
         </section>
