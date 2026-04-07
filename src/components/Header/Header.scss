@@ -9,10 +9,30 @@
   background: linear-gradient(
     180deg,
     $color-header-background-top 0%,
-    $color-header-background-bottom 100%
+    $color-header-background-bottom 55%,
+    rgba(201, 185, 229, 0.72) 65%,
+    rgba(201, 185, 229, 0.22) 100%
   );
-  border-bottom: 1px solid $color-header-border;
+  border-bottom: 1px solid rgba(94, 68, 168, 0.12);
   box-shadow: 0 10px 30px $color-header-shadow;
+  isolation: isolate;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -28px;
+    height: 42px;
+    pointer-events: none;
+    z-index: -1;
+    background: linear-gradient(
+      180deg,
+      rgba(246, 240, 243, 0) 0%,
+      rgba(246, 240, 243, 0.58) 55%,
+      $color-background 100%
+    );
+  }
 }
 
 .site-header__inner {
@@ -159,6 +179,13 @@
 }
 
 @include mobile {
+  .site-header {
+    &::after {
+      bottom: -22px;
+      height: 34px;
+    }
+  }
+
   .site-header__inner {
     min-height: 72px;
     padding-block: 0.75rem;
