@@ -39,7 +39,7 @@
 }
 
 .site-header__name {
-  color: $color-title;
+  color: $color-primary-dark;
   font-size: 1.3rem;
   font-weight: 800;
   line-height: 1.1;
@@ -86,7 +86,9 @@
   border: 1px solid $color-header-nav-border;
   border-radius: $radius-pill;
   background: $color-header-nav-background;
-  box-shadow: inset 0 1px 0 $color-header-nav-highlight;
+  box-shadow:
+    inset 0 1px 0 $color-header-nav-highlight,
+    0 8px 22px rgba(94, 68, 168, 0.08);
 }
 
 .site-header__link {

@@ -70,35 +70,35 @@ $color-button-secondary-text: $color-primary;
 $color-button-secondary-border: $color-border-strong;
 
 // ---------- Header ----------
-$color-header-background-top: rgba(233, 224, 241, 0.94);
-$color-header-background-bottom: rgba(222, 210, 235, 0.9);
-$color-header-border: rgba(94, 68, 168, 0.16);
-$color-header-shadow: rgba(94, 68, 168, 0.08);
+$color-header-background-top: rgba(168, 148, 213, 0.94);
+$color-header-background-bottom: rgba(201, 185, 229, 0.92);
+$color-header-border: rgba(94, 68, 168, 0.22);
+$color-header-shadow: rgba(94, 68, 168, 0.14);
 
-$color-header-role: rgba(58, 47, 71, 0.72);
+$color-header-role: rgba(63, 46, 122, 0.78);
 
-$color-header-toggle-background: rgba(255, 255, 255, 0.42);
-$color-header-toggle-border: rgba(94, 68, 168, 0.16);
-$color-header-toggle-shadow: rgba(94, 68, 168, 0.08);
+$color-header-toggle-background: rgba(255, 255, 255, 0.52);
+$color-header-toggle-border: rgba(94, 68, 168, 0.2);
+$color-header-toggle-shadow: rgba(94, 68, 168, 0.12);
 
-$color-header-nav-background: rgba(255, 255, 255, 0.22);
-$color-header-nav-border: rgba(94, 68, 168, 0.12);
-$color-header-nav-highlight: rgba(255, 255, 255, 0.32);
+$color-header-nav-background: rgba(255, 255, 255, 0.24);
+$color-header-nav-border: rgba(94, 68, 168, 0.14);
+$color-header-nav-highlight: rgba(255, 255, 255, 0.36);
 
-$color-header-link: rgba(67, 49, 110, 0.86);
-$color-header-link-hover-background: rgba(255, 255, 255, 0.46);
+$color-header-link: rgba(63, 46, 122, 0.9);
+$color-header-link-hover-background: rgba(255, 255, 255, 0.42);
 
-$color-header-link-active-start: rgba(98, 69, 191, 0.98);
-$color-header-link-active-end: rgba(114, 85, 205, 0.94);
-$color-header-link-active-start-hover: rgba(98, 69, 191, 1);
-$color-header-link-active-end-hover: rgba(114, 85, 205, 0.98);
+$color-header-link-active-start: rgba(94, 68, 168, 0.98);
+$color-header-link-active-end: rgba(121, 93, 201, 0.95);
+$color-header-link-active-start-hover: rgba(94, 68, 168, 1);
+$color-header-link-active-end-hover: rgba(121, 93, 201, 0.98);
 $color-header-link-active-text: #ffffff;
-$color-header-link-active-shadow: rgba(94, 68, 168, 0.22);
+$color-header-link-active-shadow: rgba(94, 68, 168, 0.28);
 
-$color-header-mobile-panel-top: rgba(244, 239, 248, 0.97);
-$color-header-mobile-panel-bottom: rgba(231, 222, 240, 0.96);
-$color-header-mobile-panel-shadow: rgba(58, 40, 103, 0.16);
-$color-header-mobile-link-background: rgba(255, 255, 255, 0.56);
+$color-header-mobile-panel-top: rgba(236, 229, 246, 0.97);
+$color-header-mobile-panel-bottom: rgba(220, 208, 239, 0.96);
+$color-header-mobile-panel-shadow: rgba(58, 40, 103, 0.18);
+$color-header-mobile-link-background: rgba(255, 255, 255, 0.62);
 
 // ---------- Footer ----------
 $color-footer-background-start: rgba(245, 235, 242, 0.94);
