@@ -62,6 +62,7 @@
 
 .projects-page__item {
   min-width: 0;
+  width: 100%;
 }
 
 /* =========================
@@ -79,5 +80,9 @@
   .projects-page__panel {
     padding: $spacing-lg;
     border-radius: $radius-xl;
+  }
+
+  .projects-page__grid {
+    grid-template-columns: 1fr;
   }
 }
