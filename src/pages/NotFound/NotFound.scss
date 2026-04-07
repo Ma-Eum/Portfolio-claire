@@ -6,21 +6,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  background: $color-background;
+  padding: $spacing-xl;
   overflow: hidden;
+  background: $color-background;
 }
 
 .not-found__content {
   position: relative;
-  width: min(1280px, 100%);
-  min-height: 720px;
+  isolation: isolate;
+  overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
+  width: min($notfound-content-max-width, 100%);
+  min-height: $notfound-content-min-height;
   border-radius: $radius-2xl;
-  overflow: hidden;
-  isolation: isolate;
   background: $color-background;
 }
 
@@ -42,12 +42,12 @@
   pointer-events: none;
   background: linear-gradient(
     90deg,
-    rgba(246, 240, 243, 0.03) 0%,
-    rgba(246, 240, 243, 0.08) 32%,
-    rgba(246, 240, 243, 0.12) 48%,
-    rgba(246, 240, 243, 0.17) 58%,
-    rgba(246, 240, 243, 0.24) 68%,
-    rgba(246, 240, 243, 0.34) 100%
+    $color-notfound-overlay-1 0%,
+    $color-notfound-overlay-2 32%,
+    $color-notfound-overlay-3 48%,
+    $color-notfound-overlay-4 58%,
+    $color-notfound-overlay-5 68%,
+    $color-notfound-overlay-6 100%
   );
 }
 
@@ -59,8 +59,8 @@
   flex-direction: column;
   justify-content: center;
   align-self: stretch;
-  max-width: 620px;
-  padding: 4.5rem 4.5rem 4rem 2.5rem;
+  max-width: $notfound-text-max-width;
+  padding: $notfound-text-padding-desktop;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -68,16 +68,16 @@
 
 .not-found__kanji {
   position: absolute;
-  top: -0.6rem;
-  right: 0.4rem;
+  top: $notfound-kanji-top-desktop;
+  right: $notfound-kanji-right-desktop;
   z-index: 0;
+  pointer-events: none;
+  user-select: none;
   font-size: clamp(5.4rem, 8vw, 8.2rem);
   font-weight: 500;
   line-height: 1;
-  color: $color-accent-rose;
+  color: $color-notfound-accent;
   opacity: 0.42;
-  pointer-events: none;
-  user-select: none;
 }
 
 .not-found__eyebrow,
@@ -90,42 +90,42 @@
 
 .not-found__eyebrow {
   margin: 0 0 1rem;
-  font-size: 0.92rem;
+  color: $color-primary;
+  font-size: $notfound-eyebrow-size;
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: $color-primary;
 }
 
 .not-found__title {
   margin: 0 0 1.6rem;
-  font-size: clamp(2.7rem, 4vw, 4.2rem);
-  line-height: 1.05;
-  font-weight: 700;
   color: $color-text;
+  font-size: clamp(2.7rem, 4vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.05;
 }
 
 .not-found__description {
   margin: 0 0 1.35rem;
   max-width: 31ch;
-  font-size: 1.22rem;
-  line-height: 1.7;
   color: $color-text-secondary;
+  font-size: $notfound-description-size;
+  line-height: 1.7;
 }
 
 .not-found__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: $spacing-md;
+  margin-top: $spacing-md;
 }
 
 .not-found__button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 56px;
-  padding: 0 1.6rem;
+  min-height: $notfound-button-min-height;
+  padding: 0 $notfound-button-padding-inline;
   border-radius: $radius-md;
   font: inherit;
   font-weight: 600;
@@ -145,9 +145,9 @@
   border: 1px solid $color-button-primary-border;
 
   &:hover {
+    transform: translateY(-1px);
     background: $color-button-primary-background-hover;
     border-color: $color-button-primary-background-hover;
-    transform: translateY(-1px);
     box-shadow: $shadow-button-hover;
   }
 }
@@ -158,9 +158,9 @@
   border: 1px solid $color-button-secondary-border;
 
   &:hover {
+    transform: translateY(-1px);
     background: $color-button-secondary-background-hover;
     border-color: $color-primary;
-    transform: translateY(-1px);
   }
 }
 
@@ -168,8 +168,8 @@
   position: absolute;
   inset: 0;
   z-index: 2;
-  pointer-events: none;
   overflow: hidden;
+  pointer-events: none;
 }
 
 .petal {
@@ -178,14 +178,14 @@
   width: 18px;
   height: 12px;
   border-radius: 70% 30% 70% 30%;
+  opacity: 0;
+  filter: blur(0.15px);
   background: radial-gradient(
     circle at 30% 30%,
     $color-petal-light 0%,
     $color-petal-mid 55%,
     $color-petal-deep 100%
   );
-  opacity: 0;
-  filter: blur(0.15px);
   animation-name: sakura-fall;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -270,13 +270,13 @@
   }
 }
 
-@media (max-width: 1100px) {
+@include tablet-only {
   .not-found__content {
-    min-height: 680px;
+    min-height: $notfound-content-min-height-tablet;
   }
 
   .not-found__text {
-    padding: 4rem 3rem 3.5rem 2rem;
+    padding: $notfound-text-padding-tablet;
   }
 
   .not-found__title {
@@ -284,18 +284,18 @@
   }
 
   .not-found__description {
-    font-size: 1.12rem;
+    font-size: $notfound-description-size-tablet;
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: $breakpoint-notfound-stack) {
   .not-found {
-    padding: 1rem;
+    padding: $spacing-md;
   }
 
   .not-found__content {
     grid-template-columns: 1fr;
-    min-height: 760px;
+    min-height: $notfound-content-min-height-mobile;
   }
 
   .not-found__visual {
@@ -306,12 +306,12 @@
     grid-column: 1;
     justify-content: flex-end;
     max-width: 100%;
-    padding: 3rem 2rem 2.5rem;
+    padding: $notfound-text-padding-mobile;
   }
 
   .not-found__kanji {
-    top: 0.6rem;
-    right: 0.8rem;
+    top: $notfound-kanji-top-mobile;
+    right: $notfound-kanji-right-mobile;
     font-size: clamp(4.5rem, 14vw, 6rem);
     opacity: 0.28;
   }
@@ -322,22 +322,22 @@
 
   .not-found__description {
     max-width: 100%;
-    font-size: 1.05rem;
+    font-size: $notfound-description-size-mobile;
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: $breakpoint-mobile-alt) {
   .not-found__content {
-    min-height: 700px;
+    min-height: $notfound-content-min-height-mobile-sm;
     border-radius: $radius-xl;
   }
 
   .not-found__text {
-    padding: 2.2rem 1.25rem 1.5rem;
+    padding: $notfound-text-padding-mobile-sm;
   }
 
   .not-found__eyebrow {
-    font-size: 0.8rem;
+    font-size: $notfound-eyebrow-size-mobile;
   }
 
   .not-found__title {
@@ -345,7 +345,7 @@
   }
 
   .not-found__description {
-    font-size: 0.98rem;
+    font-size: $notfound-description-size-mobile-sm;
     line-height: 1.6;
   }
 
