@@ -1,0 +1,117 @@
+@use '../../styles/variables' as *;
+
+.sakura-petals {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.petal {
+  position: absolute;
+  top: -6%;
+  width: 18px;
+  height: 12px;
+  border-radius: 70% 30% 70% 30%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    $color-petal-light 0%,
+    $color-petal-mid 55%,
+    $color-petal-deep 100%
+  );
+  opacity: 0;
+  filter: blur(0.15px);
+  will-change: transform, opacity;
+  animation-name: sakura-fall-page;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Variations */
+.petal--1 {
+  left: 8%;
+  animation-duration: 13s;
+  animation-delay: -2s;
+}
+
+.petal--2 {
+  left: 20%;
+  animation-duration: 16s;
+  animation-delay: -7s;
+}
+
+.petal--3 {
+  left: 34%;
+  animation-duration: 15s;
+  animation-delay: -4s;
+}
+
+.petal--4 {
+  left: 49%;
+  animation-duration: 18s;
+  animation-delay: -9s;
+}
+
+.petal--5 {
+  left: 61%;
+  animation-duration: 14s;
+  animation-delay: -3s;
+}
+
+.petal--6 {
+  left: 73%;
+  animation-duration: 17s;
+  animation-delay: -6s;
+}
+
+.petal--7 {
+  left: 84%;
+  animation-duration: 19s;
+  animation-delay: -11s;
+}
+
+.petal--8 {
+  left: 92%;
+  animation-duration: 12s;
+  animation-delay: -5s;
+}
+
+/* Animation basée sur la hauteur de la page, pas du viewport */
+@keyframes sakura-fall-page {
+  0% {
+    transform: translate3d(0, 0%, 0) rotate(0deg) scale(0.85);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 0.72;
+  }
+
+  30% {
+    transform: translate3d(28px, 30%, 0) rotate(90deg) scale(1);
+    opacity: 0.76;
+  }
+
+  55% {
+    transform: translate3d(-18px, 60%, 0) rotate(165deg) scale(0.94);
+    opacity: 0.74;
+  }
+
+  80% {
+    transform: translate3d(24px, 90%, 0) rotate(230deg) scale(0.88);
+    opacity: 0.58;
+  }
+
+  100% {
+    transform: translate3d(-30px, 112%, 0) rotate(285deg) scale(0.8);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal {
+    animation: none;
+    opacity: 0.22;
+  }
+}
