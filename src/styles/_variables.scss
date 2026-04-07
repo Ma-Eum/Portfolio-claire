@@ -1,24 +1,15 @@
 // ==============================
-// Variables globales du projet
+// Tokens design du portfolio
 // ==============================
-// Ce fichier centralise les couleurs, espacements,
-// rayons, ombres, tailles et breakpoints.
-// Direction artistique : sakura doux, rose poudré,
-// violet profond, surfaces légères et poétiques.
 
-/* =========================
-   COULEURS PRINCIPALES
-========================= */
-
+// ---------- Couleurs de base ----------
 $color-background: #f6f0f3;
 $color-background-alt: #fbf7f9;
 $color-background-soft: #f8f1f5;
-$color-background-deep: #f5edf2;
-
 $color-surface: #ffffff;
-$color-surface-soft: rgba(255, 255, 255, 0.62);
-$color-surface-glass: rgba(255, 255, 255, 0.55);
-$color-surface-glass-strong: rgba(255, 255, 255, 0.82);
+$color-surface-soft: rgba(255, 255, 255, 0.72);
+$color-surface-glass: rgba(255, 255, 255, 0.58);
+$color-surface-glass-strong: rgba(255, 255, 255, 0.84);
 
 $color-text: #2f2437;
 $color-text-secondary: #51465c;
@@ -28,157 +19,95 @@ $color-border: rgba(94, 68, 168, 0.14);
 $color-border-soft: rgba(94, 68, 168, 0.1);
 $color-border-strong: rgba(94, 68, 168, 0.22);
 
-/* =========================
-   COULEURS D’ACCENT
-========================= */
-
+// ---------- Couleurs d’accent ----------
 $color-primary: #5e44a8;
-$color-primary-hover: #533b96;
+$color-primary-hover: #523a94;
 $color-primary-dark: #3f2e7a;
 $color-focus: #5e44a8;
 
 $color-accent-sakura: #f7c4da;
-$color-accent-sakura-soft: #ffe0ec;
+$color-accent-sakura-soft: #ffe7f0;
 $color-accent-sakura-deep: #ea9cbf;
-$color-accent-rose: #d8a1c2;
+$color-accent-lilac: #d9cef3;
 
-/* =========================
-   FONDS DÉCORATIFS
-========================= */
-
+// ---------- Fonds décoratifs ----------
 $color-hero-overlay-start: rgba(255, 255, 255, 0.46);
 $color-hero-overlay-middle: rgba(255, 255, 255, 0.26);
 $color-hero-overlay-end: rgba(255, 255, 255, 0.18);
 
-$color-page-glow-left: rgba(255, 224, 236, 0.55);
+$color-page-glow-left: rgba(255, 224, 236, 0.58);
 $color-page-glow-right: rgba(215, 198, 255, 0.34);
 $color-page-glow-bottom: rgba(255, 235, 244, 0.22);
 
-$color-page-overlay-top: rgba(255, 255, 255, 0.18);
-$color-page-overlay-mid: rgba(255, 255, 255, 0.04);
-$color-page-overlay-bottom: rgba(94, 68, 168, 0.02);
-
-/* =========================
-   TAGS / PILLS
-========================= */
-
+// ---------- Tags ----------
 $color-tag-background: rgba(94, 68, 168, 0.08);
-$color-tag-border: rgba(94, 68, 168, 0.1);
-$color-tag-text: $color-primary;
+$color-tag-background-strong: rgba(94, 68, 168, 0.12);
+$color-tag-border: rgba(94, 68, 168, 0.14);
+$color-tag-text: $color-primary-dark;
 
-/* =========================
-   BOUTONS
-========================= */
-
+// ---------- Boutons ----------
 $color-button-primary-background: $color-primary;
 $color-button-primary-background-hover: $color-primary-hover;
 $color-button-primary-text: #ffffff;
 $color-button-primary-border: $color-primary;
 
-$color-button-secondary-background: $color-surface-glass;
-$color-button-secondary-background-hover: $color-surface-glass-strong;
+$color-button-secondary-background: rgba(255, 255, 255, 0.82);
+$color-button-secondary-background-hover: rgba(255, 255, 255, 0.96);
 $color-button-secondary-text: $color-primary;
 $color-button-secondary-border: $color-border-strong;
 
-/* Alias pour compatibilité avec les anciens SCSS */
-$color-button-secondary-hover: $color-button-secondary-background-hover;
+// ---------- Header / Footer ----------
+$color-header-background-start: rgba(94, 68, 168, 0.78);
+$color-header-background-end: rgba(236, 228, 238, 0.95);
+$color-header-border: rgba(94, 68, 168, 0.16);
 
-/* =========================
-   PÉTALES
-========================= */
+$color-footer-background-start: rgba(245, 235, 242, 0.94);
+$color-footer-background-end: rgba(229, 215, 232, 0.96);
+$color-footer-border: rgba(94, 68, 168, 0.14);
 
-$color-petal-light: rgba(255, 244, 248, 0.96);
-$color-petal-mid: rgba(247, 196, 218, 0.92);
-$color-petal-deep: rgba(234, 156, 191, 0.82);
-$color-petal-shadow: rgba(215, 129, 168, 0.12);
+// ---------- Ombres ----------
+$shadow-card:
+  0 18px 45px rgba(94, 68, 168, 0.08),
+  0 8px 18px rgba(94, 68, 168, 0.05);
 
-/* =========================
-   HEADER / FOOTER
-========================= */
+$shadow-card-hover:
+  0 24px 54px rgba(94, 68, 168, 0.12),
+  0 10px 24px rgba(94, 68, 168, 0.06);
 
-$color-header-background-start: rgba(94, 68, 168, 0.92);
-$color-header-background-end: rgba(241, 233, 240, 0.85);
-$color-header-border: rgba(94, 68, 168, 0.12);
-$color-header-shadow: rgba(94, 68, 168, 0.05);
+$shadow-button-hover: 0 10px 24px rgba(94, 68, 168, 0.18);
+$shadow-soft: 0 10px 24px rgba(94, 68, 168, 0.06);
 
-$color-header-brand: #f2eaf1;
-$color-header-brand-outline: #5e44a8;
-$color-header-link: #f2eaf1;
-$color-header-link-hover-background: rgba(255, 255, 255, 0.2);
-$color-header-link-hover-text: #ffffff;
-$color-header-link-active-start: rgba(255, 255, 255, 0.2);
-$color-header-link-active-end: rgba(216, 161, 194, 0.28);
-
-$color-footer-background-start: rgba(246, 228, 238, 0.7);
-$color-footer-background-end: rgba(233, 213, 229, 0.82);
-$color-footer-border: rgba(94, 68, 168, 0.12);
-
-$color-footer-glow-left: rgba(255, 240, 246, 0.35);
-$color-footer-glow-right: rgba(216, 161, 194, 0.16);
-$color-footer-overlay-top: rgba(255, 255, 255, 0.12);
-
-$color-footer-title: #3f2e7a;
-$color-footer-text: #51465c;
-$color-footer-link: #5e44a8;
-$color-footer-link-hover: #3f2e7a;
-
-/* =========================
-   OMBRES
-========================= */
-
-$color-card-shadow: rgba(94, 68, 168, 0.08);
-$color-card-shadow-hover: rgba(94, 68, 168, 0.12);
-$color-button-shadow: rgba(94, 68, 168, 0.2);
-$color-hero-shadow: rgba(94, 68, 168, 0.08);
-
-$shadow-card: 0 10px 25px $color-card-shadow;
-$shadow-card-hover: 0 14px 30px $color-card-shadow-hover;
-$shadow-button-hover: 0 8px 20px $color-button-shadow;
-$shadow-hero: 0 18px 45px $color-hero-shadow;
-
-/* =========================
-   TYPOGRAPHIE
-========================= */
-
+// ---------- Typographie ----------
 $font-main: Arial, Helvetica, sans-serif;
 
-/* =========================
-   LAYOUT
-========================= */
-
+// ---------- Layout ----------
 $container-width: 1200px;
+$container-narrow: 980px;
 
-/* =========================
-   ESPACEMENTS
-========================= */
-
+// ---------- Espacements ----------
+$spacing-2xs: 0.25rem;
 $spacing-xs: 0.5rem;
 $spacing-sm: 0.75rem;
 $spacing-md: 1rem;
 $spacing-lg: 1.5rem;
 $spacing-xl: 2rem;
+$spacing-2xl: 3rem;
+$spacing-3xl: 4rem;
 
-/* =========================
-   RAYONS
-========================= */
-
-$radius-sm: 8px;
-$radius-md: 12px;
-$radius-lg: 16px;
-$radius-xl: 22px;
-$radius-2xl: 28px;
+// ---------- Rayons ----------
+$radius-sm: 10px;
+$radius-md: 14px;
+$radius-lg: 18px;
+$radius-xl: 24px;
+$radius-2xl: 30px;
 $radius-pill: 999px;
 
-/* =========================
-   MÉDIAS / VISUELS
-========================= */
-
-$project-card-image-height: 180px;
+// ---------- Médias ----------
+$project-card-image-height: 220px;
 $project-card-image-height-mobile: 200px;
 
-/* =========================
-   BREAKPOINTS
-========================= */
-
+// ---------- Breakpoints ----------
+$breakpoint-mobile-sm: 420px;
 $breakpoint-mobile: 768px;
 $breakpoint-tablet: 1100px;
+$breakpoint-desktop-lg: 1360px;
