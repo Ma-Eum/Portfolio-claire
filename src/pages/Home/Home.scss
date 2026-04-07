@@ -555,6 +555,38 @@
 }
 
 /* =========================
+   CONTRIBUTION PANEL
+========================= */
+.home__contribution-panel {
+  padding: clamp(1.25rem, 2vw, 1.8rem);
+  border-radius: 30px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.86) 100%
+  );
+  border: 1px solid rgba(94, 68, 168, 0.1);
+  box-shadow:
+    0 18px 40px rgba(94, 68, 168, 0.06),
+    0 2px 10px rgba(94, 68, 168, 0.03);
+}
+
+.home__contribution-header {
+  margin-bottom: clamp(1.25rem, 2vw, 1.8rem);
+}
+
+.home__contribution-header .home__section-title {
+  margin-bottom: 0.75rem;
+}
+
+.home__contribution-intro {
+  max-width: 760px;
+  margin: 0;
+  color: $color-text-secondary;
+  line-height: 1.75;
+}
+
+/* =========================
    PROJECTS GRID
 ========================= */
 .home__projects-grid {
@@ -668,7 +700,8 @@
 @media (max-width: 560px) {
   .home__hero-content,
   .home__featured-card,
-  .home__projects-panel {
+  .home__projects-panel,
+  .home__contribution-panel {
     padding: 1.5rem 1rem;
     border-radius: $radius-xl;
   }

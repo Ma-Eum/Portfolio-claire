@@ -30,12 +30,11 @@ function Home() {
           <div className="home__hero-content">
             <p className="home__eyebrow">Portfolio développeuse front-end</p>
 
-            <h1 className="home__title">
-              Claire Gachelin
-            </h1>
+            <h1 className="home__title">Claire Gachelin</h1>
 
             <p className="home__subtitle">
-              Développeuse Front-End React • Interfaces accessibles, soignées et maintenables
+              Développeuse Front-End React • Interfaces accessibles, soignées et
+              maintenables
             </p>
 
             <p className="home__intro">
@@ -81,6 +80,7 @@ function Home() {
           <div className="home__featured-card">
             <div className="home__featured-content">
               <p className="home__featured-label">Projet mis en avant</p>
+
               <h2 id="featured-project-title" className="home__featured-title">
                 {featuredProject.title}
               </h2>
@@ -95,9 +95,7 @@ function Home() {
 
               <div className="home__featured-highlight">
                 <h3 className="home__featured-subtitle">Pourquoi ce projet est important</h3>
-                <p className="home__featured-text">
-                  {featuredProject.recruiterHighlight}
-                </p>
+                <p className="home__featured-text">{featuredProject.recruiterHighlight}</p>
               </div>
 
               <ul
@@ -230,8 +228,9 @@ function Home() {
               <h2 className="home__section-title">Projets</h2>
 
               <p className="home__projects-intro">
-                Des projets qui illustrent concrètement ma progression en développement front-end :
-                intégration, accessibilité, React, API, refactor et qualité du code.
+                Des projets qui illustrent concrètement ma progression en développement
+                front-end : intégration, accessibilité, React, API, refactor et qualité
+                du code.
               </p>
             </div>
 
@@ -250,54 +249,55 @@ function Home() {
         </section>
 
         <section className="home__section home__section--contribution">
-          <div className="home__section-heading">
-            <div>
-              <p className="home__section-kicker">Valeur ajoutée</p>
+          <div className="home__contribution-panel">
+            <div className="home__contribution-header">
               <h2 className="home__section-title">Ce que je peux apporter à une équipe</h2>
+
+              <p className="home__contribution-intro">
+                Au-delà des outils, j’apporte une façon de travailler sérieuse, impliquée
+                et tournée vers la qualité du produit final.
+              </p>
             </div>
 
-            <p className="home__section-intro">
-              Au-delà des outils, j’apporte une façon de travailler sérieuse, impliquée
-              et tournée vers la qualité du produit final.
-            </p>
-          </div>
+            <div className="home__contribution-grid">
+              <article className="home__contribution-card">
+                <p className="home__contribution-number">01</p>
+                <h3 className="home__card-title">Rigueur et sens de l’organisation</h3>
+                <p className="home__card-text">
+                  Mon parcours m’a appris à travailler avec méthode, à structurer les
+                  priorités et à avancer de façon fiable sur des tâches concrètes.
+                </p>
+              </article>
 
-          <div className="home__contribution-grid">
-            <article className="home__contribution-card">
-              <p className="home__contribution-number">01</p>
-              <h3 className="home__card-title">Rigueur et sens de l’organisation</h3>
-              <p className="home__card-text">
-                Mon parcours m’a appris à travailler avec méthode, à structurer les
-                priorités et à avancer de façon fiable sur des tâches concrètes.
-              </p>
-            </article>
+              <article className="home__contribution-card">
+                <p className="home__contribution-number">02</p>
+                <h3 className="home__card-title">Attention à l’utilisateur</h3>
+                <p className="home__card-text">
+                  Je veille à produire des interfaces compréhensibles, accessibles et
+                  agréables à utiliser, avec un vrai souci de lisibilité et d’expérience.
+                </p>
+              </article>
 
-            <article className="home__contribution-card">
-              <p className="home__contribution-number">02</p>
-              <h3 className="home__card-title">Attention à l’utilisateur</h3>
-              <p className="home__card-text">
-                Je veille à produire des interfaces compréhensibles, accessibles et
-                agréables à utiliser, avec un vrai souci de lisibilité et d’expérience.
-              </p>
-            </article>
+              <article className="home__contribution-card">
+                <p className="home__contribution-number">03</p>
+                <h3 className="home__card-title">Envie d’apprendre et de progresser</h3>
+                <p className="home__card-text">
+                  Je suis dans une dynamique de progression continue, avec l’envie de
+                  consolider mes acquis, recevoir du feedback et monter en compétence en
+                  équipe.
+                </p>
+              </article>
 
-            <article className="home__contribution-card">
-              <p className="home__contribution-number">03</p>
-              <h3 className="home__card-title">Envie d’apprendre et de progresser</h3>
-              <p className="home__card-text">
-                Je suis dans une dynamique de progression continue, avec l’envie de
-                consolider mes acquis, recevoir du feedback et monter en compétence en équipe.
-              </p>
-            </article>
-
-            <article className="home__contribution-card">
-              <p className="home__contribution-number">04</p>
-              <h3 className="home__card-title">Code propre et maintenable</h3>
-              <p className="home__card-text">
-                J’accorde de l’importance à la clarté du code, à la structure des composants
-                et à une base de travail compréhensible pour la suite du projet.
-              </p>
-            </article>
+              <article className="home__contribution-card">
+                <p className="home__contribution-number">04</p>
+                <h3 className="home__card-title">Code propre et maintenable</h3>
+                <p className="home__card-text">
+                  J’accorde de l’importance à la clarté du code, à la structure des
+                  composants et à une base de travail compréhensible pour la suite du
+                  projet.
+                </p>
+              </article>
+            </div>
           </div>
         </section>
 
