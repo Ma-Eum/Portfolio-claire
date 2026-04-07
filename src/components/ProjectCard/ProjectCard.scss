@@ -8,17 +8,15 @@
   height: 100%;
   overflow: hidden;
   border-radius: 26px;
-  border: 1px solid rgba(94, 68, 168, 0.1);
+  border: 1px solid rgba(94, 68, 168, 0.14);
   background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.5) 0%,
-    rgba(255, 255, 255, 0.28) 48%,
-    rgba(255, 255, 255, 0.18) 100%
+    180deg,
+    rgba(255, 255, 255, 0.99) 0%,
+    rgba(255, 255, 255, 0.95) 100%
   );
   box-shadow:
-    0 18px 45px rgba(94, 68, 168, 0.08),
-    0 2px 10px rgba(94, 68, 168, 0.04);
-  backdrop-filter: blur(10px);
+    0 22px 44px rgba(94, 68, 168, 0.1),
+    0 8px 18px rgba(94, 68, 168, 0.05);
   transition:
     transform 0.32s ease,
     box-shadow 0.32s ease,
@@ -28,23 +26,24 @@
 .project-card::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: 0 0 auto 0;
+  height: 110px;
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0) 28%,
-    rgba(255, 255, 255, 0.08) 100%
+    rgba(191, 172, 232, 0.18) 0%,
+    rgba(191, 172, 232, 0.05) 58%,
+    rgba(191, 172, 232, 0) 100%
   );
-  opacity: 0.85;
+  z-index: 0;
 }
 
 .project-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(94, 68, 168, 0.2);
+  border-color: rgba(94, 68, 168, 0.22);
   box-shadow:
-    0 24px 55px rgba(94, 68, 168, 0.12),
-    0 8px 18px rgba(94, 68, 168, 0.06);
+    0 28px 54px rgba(94, 68, 168, 0.14),
+    0 10px 22px rgba(94, 68, 168, 0.06);
 }
 
 .project-card__media-link {
@@ -62,6 +61,7 @@
     rgba(244, 236, 248, 0.52) 50%,
     rgba(255, 255, 255, 0.35) 100%
   );
+  z-index: 1;
 }
 
 .project-card__image {
@@ -99,23 +99,27 @@
   width: 42px;
   height: 42px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.92);
   color: $color-primary;
   font-size: 1rem;
   font-weight: 700;
-  box-shadow: 0 10px 24px rgba(94, 68, 168, 0.14);
-  backdrop-filter: blur(8px);
+  box-shadow:
+    0 12px 24px rgba(94, 68, 168, 0.12),
+    0 2px 8px rgba(94, 68, 168, 0.05);
   transform: translateY(0);
   transition:
     transform 0.3s ease,
     background-color 0.3s ease,
     box-shadow 0.3s ease;
+  z-index: 2;
 }
 
 .project-card:hover .project-card__overlay-icon {
   transform: translateY(-2px) scale(1.03);
-  background: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 14px 28px rgba(94, 68, 168, 0.18);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow:
+    0 16px 28px rgba(94, 68, 168, 0.16),
+    0 4px 10px rgba(94, 68, 168, 0.06);
 }
 
 .project-card__body {
@@ -207,7 +211,7 @@
 }
 
 .project-card__link--secondary {
-  background-color: $color-button-secondary-background;
+  background-color: rgba(255, 255, 255, 0.82);
   color: $color-button-secondary-text;
   border: 1px solid $color-button-secondary-border;
 }
