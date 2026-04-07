@@ -4,14 +4,18 @@ import './Project.scss'
 
 function Project() {
   const { id } = useParams()
-  const project = projects.find((item) => item.id === id)
+  const projectIndex = projects.findIndex((item) => item.id === id)
+  const project = projects[projectIndex]
 
   if (!project) {
     return <Navigate to="/404" replace />
   }
 
+  const previousProject = projectIndex > 0 ? projects[projectIndex - 1] : null
+  const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null
+
   return (
-    <section className="project project--enhanced">
+    <main id="main-content" className="project project--enhanced">
       <div className="container">
         <header className="project__hero">
           <p className="project__context">{project.context}</p>
@@ -99,8 +103,36 @@ function Project() {
             </section>
           </aside>
         </div>
+
+        <nav className="project__pagination" aria-label="Navigation entre les projets">
+          <div className="project__pagination-item project__pagination-item--prev">
+            {previousProject ? (
+              <Link to={`/project/${previousProject.id}`} className="project__pagination-link">
+                ← {previousProject.title}
+              </Link>
+            ) : (
+              <span className="project__pagination-placeholder"> </span>
+            )}
+          </div>
+
+          <div className="project__pagination-item project__pagination-item--center">
+            <Link to="/projects" className="project__pagination-link project__pagination-link--center">
+              Tous les projets
+            </Link>
+          </div>
+
+          <div className="project__pagination-item project__pagination-item--next">
+            {nextProject ? (
+              <Link to={`/project/${nextProject.id}`} className="project__pagination-link">
+                {nextProject.title} →
+              </Link>
+            ) : (
+              <span className="project__pagination-placeholder"> </span>
+            )}
+          </div>
+        </nav>
       </div>
-    </section>
+    </main>
   )
 }
 
