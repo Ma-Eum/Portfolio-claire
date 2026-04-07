@@ -264,27 +264,29 @@
    PAGINATION ENTRE PROJETS
 ========================= */
 .project__pagination {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-
-  margin-top: 2.5rem;
+  gap: 1rem;
+  margin-top: 3rem;
   margin-bottom: 2rem;
-  padding: 0.4rem;
-
-  border: 1px solid $color-border-soft;
-  border-radius: $radius-pill;
-
-  background: $color-tag-background;
+  padding: 1.5rem;
+  border: 1px solid rgba(94, 68, 168, 0.1);
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.72) 0%,
+    rgba(255, 255, 255, 0.58) 100%
+  );
   backdrop-filter: blur(10px);
-  box-shadow: $shadow-soft;
+  box-shadow:
+    0 18px 40px rgba(94, 68, 168, 0.06),
+    0 2px 10px rgba(94, 68, 168, 0.03);
 }
 
-.project__pagination-item--prev,
-.project__pagination-item--next {
-  flex: 1;
+.project__pagination-item {
   display: flex;
+  align-items: center;
 }
 
 .project__pagination-item--prev {
@@ -292,7 +294,6 @@
 }
 
 .project__pagination-item--center {
-  display: flex;
   justify-content: center;
 }
 
@@ -304,39 +305,36 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
-  min-height: 42px;
-  padding: 0.6rem 1rem;
-
-  border: 1px solid rgba(94, 68, 168, 0.12);
+  min-height: 52px;
+  padding: 0.85rem 1.4rem;
+  border: 1px solid rgba(94, 68, 168, 0.14);
   border-radius: $radius-pill;
-  background: rgba(255, 255, 255, 0.35);
-
+  background: rgba(255, 255, 255, 0.82);
   color: $color-primary-dark;
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
   text-decoration: none;
-
   transition:
-    background-color 0.28s ease,
-    border-color 0.28s ease,
-    color 0.28s ease,
-    transform 0.28s ease,
-    box-shadow 0.28s ease;
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .project__pagination-link:hover {
-  transform: translateY(-4px);
-  background: $color-header-nav-background;
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.96);
   border-color: rgba(94, 68, 168, 0.22);
-  color: $color-primary-dark;
-  box-shadow:
-    0 18px 34px rgba(94, 68, 168, 0.14),
-    0 8px 18px rgba(94, 68, 168, 0.06);
+  color: $color-primary;
+  box-shadow: 0 12px 28px rgba(94, 68, 168, 0.1);
 }
 
 .project__pagination-link--center {
-  border-color: $color-button-primary-border;
+  min-width: 220px;
+  border-color: transparent;
   background: linear-gradient(
     135deg,
     $color-primary 0%,
@@ -347,22 +345,17 @@
 }
 
 .project__pagination-link--center:hover {
-  transform: translateY(-4px);
   background: linear-gradient(
     135deg,
     $color-primary-hover 0%,
     $color-primary-dark 100%
   );
-  border-color: $color-primary-dark;
   color: $color-button-primary-text;
-  box-shadow:
-    0 20px 36px rgba(94, 68, 168, 0.2),
-    0 10px 20px rgba(94, 68, 168, 0.08);
 }
 
 .project__pagination-placeholder {
-  display: inline-block;
-  min-height: 42px;
+  display: block;
+  min-height: 52px;
 }
 
 /* =========================
@@ -376,6 +369,39 @@
   .project__section--sticky {
     position: static;
     top: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .project__pagination {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 0.85rem;
+    margin-top: 2.5rem;
+    padding: 1.2rem 1rem;
+    border-radius: 32px;
+  }
+
+  .project__pagination-item,
+  .project__pagination-item--prev,
+  .project__pagination-item--center,
+  .project__pagination-item--next {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .project__pagination-link {
+    width: min(75%, 320px);
+    min-height: 50px;
+    padding: 0.9rem 1rem;
+  }
+
+  .project__pagination-link--center {
+    order: -1;
+  }
+
+  .project__pagination-placeholder {
+    display: none;
   }
 }
 
@@ -397,20 +423,9 @@
   }
 }
 
-@include mobile {
-  .project__pagination {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .project__pagination-item--prev,
-  .project__pagination-item--center,
-  .project__pagination-item--next {
-    justify-content: center;
-  }
-
+@media (max-width: 480px) {
   .project__pagination-link {
-    width: 100%;
+    width: min(82%, 320px);
   }
 }
 
@@ -430,5 +445,9 @@
   .project__back-link,
   .project__pagination-link {
     transition: none;
+  }
+
+  .project__pagination-link:hover {
+    transform: none;
   }
 }
