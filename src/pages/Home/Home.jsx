@@ -225,28 +225,27 @@ function Home() {
         </section>
 
         <section id="projects" className="home__section home__section--projects">
-          <div className="home__section-heading">
-            <div>
-              <p className="home__section-kicker">Sélection</p>
-              <h2 className="home__section-title">Autres projets</h2>
+          <div className="home__projects-panel">
+            <div className="home__projects-header">
+              <h2 className="home__section-title">Projets</h2>
+
+              <p className="home__projects-intro">
+                Des projets qui illustrent concrètement ma progression en développement front-end :
+                intégration, accessibilité, React, API, refactor et qualité du code.
+              </p>
             </div>
 
-            <p className="home__section-intro">
-              Une sélection de projets qui illustrent ma progression en intégration,
-              accessibilité, React, API, refactor et qualité front-end.
-            </p>
-          </div>
-
-          <div className="home__projects-grid">
-            {otherProjects.map((project, index) => (
-              <div
-                key={project.id}
-                className="home__project-item"
-                style={{ '--delay': `${index * 90}ms` }}
-              >
-                <ProjectCard project={project} />
-              </div>
-            ))}
+            <div className="home__projects-grid">
+              {otherProjects.map((project, index) => (
+                <div
+                  key={project.id}
+                  className="home__project-item"
+                  style={{ '--delay': `${index * 90}ms` }}
+                >
+                  <ProjectCard project={project} />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
