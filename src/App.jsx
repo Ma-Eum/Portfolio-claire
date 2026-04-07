@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
@@ -11,6 +11,7 @@ import './components/PageTransition/PageTransition.scss'
 function AnimatedRoutes() {
   const location = useLocation()
   const isProjectDetailPage = location.pathname.startsWith('/project/')
+  const isNotFoundPage = location.pathname === '/404'
 
   return (
     <>
@@ -19,7 +20,6 @@ function AnimatedRoutes() {
       </a>
 
       <Header />
-
       <ScrollToTop />
 
       <Routes location={location} key={location.pathname}>
@@ -27,10 +27,11 @@ function AnimatedRoutes() {
         <Route path="/projects" element={<Project />} />
         <Route path="/about" element={<About />} />
         <Route path="/project/:slug" element={<Project />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/404" element={<NotFound />} />
+        <Route path="*" element={<Navigate to="/404" replace />} />
       </Routes>
 
-      {!isProjectDetailPage && <Footer />}
+      {!isProjectDetailPage && !isNotFoundPage && <Footer />}
     </>
   )
 }

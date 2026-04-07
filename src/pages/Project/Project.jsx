@@ -1,26 +1,13 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, Navigate, useParams } from 'react-router-dom'
 import projects from '../../data/projects'
 import './Project.scss'
 
 function Project() {
-  const { id } = useParams()
-  const project = projects.find((item) => item.id === id)
+  const { slug } = useParams()
+  const project = projects.find((item) => item.slug === slug)
 
   if (!project) {
-    return (
-      <section className="project project--not-found">
-        <div className="container">
-          <p className="project__context">Projet introuvable</p>
-          <h1 className="project__title">Ce projet n’existe pas ou n’est pas encore disponible.</h1>
-
-          <div className="project__actions">
-            <Link to="/" className="project__back-link">
-              Retour aux projets
-            </Link>
-          </div>
-        </div>
-      </section>
-    )
+    return <Navigate to="/404" replace />
   }
 
   return (
@@ -105,7 +92,7 @@ function Project() {
                   </a>
                 ) : null}
 
-                <Link to="/" className="project__back-link">
+                <Link to="/projects" className="project__back-link">
                   Retour aux projets
                 </Link>
               </div>
