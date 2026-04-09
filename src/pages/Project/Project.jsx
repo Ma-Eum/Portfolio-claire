@@ -29,25 +29,30 @@ function Project() {
             <img
               className="project__image"
               src={project.image}
-              alt={`Aperçu du projet ${project.title}`}
+              alt={project.imageAlt || `Aperçu du projet ${project.title}`}
+              loading="lazy"
             />
           ) : null}
         </header>
 
         <div className="project__grid">
-          <article className="project__content">
+          <article className="project__content" aria-labelledby="project-content-title">
+            <h2 id="project-content-title" className="visually-hidden">
+              Contenu du projet
+            </h2>
+
             <section className="project__section project__section--intro">
-              <h2 className="project__section-title">Présentation</h2>
+              <h3 className="project__section-title">Présentation</h3>
               <p className="project__text">{project.fullDescription}</p>
             </section>
 
             <section className="project__section">
-              <h2 className="project__section-title">Ce que ce projet montre</h2>
+              <h3 className="project__section-title">Ce que ce projet montre</h3>
               <p className="project__text">{project.recruiterHighlight}</p>
             </section>
 
             <section className="project__section">
-              <h2 className="project__section-title">Ce que j’ai réalisé</h2>
+              <h3 className="project__section-title">Ce que j’ai réalisé</h3>
               <ul className="project__list">
                 {project.work.map((item) => (
                   <li key={item}>{item}</li>
@@ -56,7 +61,7 @@ function Project() {
             </section>
 
             <section className="project__section">
-              <h2 className="project__section-title">Compétences mobilisées</h2>
+              <h3 className="project__section-title">Compétences mobilisées</h3>
               <ul className="project__list">
                 {project.skills.map((skill) => (
                   <li key={skill}>{skill}</li>
@@ -65,10 +70,16 @@ function Project() {
             </section>
           </article>
 
-          <aside className="project__side">
+          <aside className="project__side" aria-labelledby="project-side-title">
             <section className="project__section project__section--sticky">
-              <h2 className="project__section-title">Stack</h2>
-              <ul className="project__tags">
+              <h2 id="project-side-title" className="project__section-title">
+                Stack et liens
+              </h2>
+
+              <ul
+                className="project__tags"
+                aria-label={`Technologies utilisées pour ${project.title}`}
+              >
                 {project.stack.map((item) => (
                   <li key={item} className="project__tag">
                     {item}
@@ -83,6 +94,7 @@ function Project() {
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Voir le code du projet ${project.title}`}
                   >
                     Voir le code
                   </a>
@@ -94,6 +106,7 @@ function Project() {
                     href={project.demo}
                     target="_blank"
                     rel="noreferrer"
+                    aria-label={`Voir la démo du projet ${project.title}`}
                   >
                     Voir le projet
                   </a>
@@ -110,11 +123,15 @@ function Project() {
         <nav className="project__pagination" aria-label="Navigation entre les projets">
           <div className="project__pagination-item project__pagination-item--prev">
             {previousProject ? (
-              <Link to={`/project/${previousProject.id}`} className="project__pagination-link">
+              <Link
+                to={`/project/${previousProject.id}`}
+                className="project__pagination-link"
+                aria-label={`Voir le projet précédent : ${previousProject.title}`}
+              >
                 ← {previousProject.title}
               </Link>
             ) : (
-              <span className="project__pagination-placeholder"> </span>
+              <span className="project__pagination-placeholder" aria-hidden="true" />
             )}
           </div>
 
@@ -129,11 +146,15 @@ function Project() {
 
           <div className="project__pagination-item project__pagination-item--next">
             {nextProject ? (
-              <Link to={`/project/${nextProject.id}`} className="project__pagination-link">
+              <Link
+                to={`/project/${nextProject.id}`}
+                className="project__pagination-link"
+                aria-label={`Voir le projet suivant : ${nextProject.title}`}
+              >
                 {nextProject.title} →
               </Link>
             ) : (
-              <span className="project__pagination-placeholder"> </span>
+              <span className="project__pagination-placeholder" aria-hidden="true" />
             )}
           </div>
         </nav>

@@ -142,9 +142,10 @@ $radius-xl: 24px;
 $radius-2xl: 30px;
 $radius-pill: 999px;
 
-// ---------- Médias ----------
-$project-card-image-height: 220px;
-$project-card-image-height-mobile: 200px;
+// ---------- Transitions ----------
+$transition-fast: 0.2s ease;
+$transition-base: 0.25s ease;
+$transition-slow: 0.32s ease;
 
 // ---------- Breakpoints ----------
 $breakpoint-mobile-sm: 420px;

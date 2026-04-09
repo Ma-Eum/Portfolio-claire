@@ -2,7 +2,7 @@
 @use './mixins' as *;
 
 // ==============================
-// Reset
+// RESET
 // ==============================
 
 *,
@@ -72,7 +72,7 @@ h4 {
 }
 
 // ==============================
-// Typographie
+// TYPOGRAPHIE
 // ==============================
 
 h1,
@@ -88,7 +88,7 @@ p {
 }
 
 // ==============================
-// Helpers globaux
+// HELPERS GLOBAUX
 // ==============================
 
 .container {
@@ -155,7 +155,7 @@ p {
 }
 
 // ==============================
-// Accessibilité
+// ACCESSIBILITÉ
 // ==============================
 
 :focus-visible {
@@ -164,27 +164,45 @@ p {
 
 .skip-link {
   position: absolute;
+  top: -120px;
   left: 1rem;
-  top: -60px;
   z-index: 1000;
-  padding: 0.8rem 1rem;
+  padding: 0.85rem 1rem;
   border-radius: $radius-md;
-  background: $color-primary;
-  color: #fff;
+  background: $color-primary-dark;
+  color: #ffffff;
   font-weight: 700;
-  box-shadow: $shadow-soft;
+  text-decoration: none;
+  box-shadow: 0 12px 24px rgba(94, 68, 168, 0.18);
+  transition: top $transition-fast;
 }
 
 .skip-link:focus {
   top: 1rem;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  white-space: nowrap;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
 // ==============================
-// Réduction d’animation
+// RÉDUCTION D’ANIMATION
 // ==============================
 
 @include reduced-motion {
   html {
     scroll-behavior: auto;
+  }
+
+  .skip-link {
+    transition: none;
   }
 }

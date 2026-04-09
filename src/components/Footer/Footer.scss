@@ -1,6 +1,9 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+/* =========================
+   FOOTER
+========================= */
 .site-footer {
   position: relative;
   overflow: hidden;
@@ -8,10 +11,10 @@
   backdrop-filter: blur(12px);
   background: linear-gradient(
     180deg,
-    rgba(239, 230, 238, 0.94) 0%,
-    rgba(224, 211, 231, 0.96) 100%
+    $color-footer-background-start 0%,
+    $color-footer-background-end 100%
   );
-  border-top: 1px solid rgba(94, 68, 168, 0.14);
+  border-top: 1px solid $color-footer-border;
   box-shadow: 0 -10px 30px rgba(94, 68, 168, 0.05);
 }
 
@@ -34,6 +37,9 @@
   opacity: 0.8;
 }
 
+/* =========================
+   STRUCTURE
+========================= */
 .site-footer__content {
   position: relative;
   z-index: 1;
@@ -50,7 +56,6 @@
 }
 
 .site-footer__title {
-  margin: 0;
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -58,28 +63,20 @@
 }
 
 .site-footer__text {
-  margin: 0;
   max-width: 34ch;
-  line-height: 1.7;
   font-size: 1.02rem;
+  line-height: 1.7;
   color: $color-text-secondary;
 }
 
 /* =========================
    LIST LINKS
 ========================= */
-
 .site-footer__list {
   display: flex;
   flex-direction: column;
   gap: $spacing-sm;
-  margin: 0;
-  padding: 0;
   list-style: none;
-}
-
-.site-footer__list li {
-  margin: 0;
 }
 
 .site-footer__list a {
@@ -87,18 +84,15 @@
   align-items: center;
   width: fit-content;
   min-height: 44px;
-  padding: 0;
-  border: none;
-  background: transparent;
   color: $color-primary-dark;
   font-size: 1.02rem;
   font-weight: 500;
   letter-spacing: 0.01em;
   text-decoration: none;
   transition:
-    color 0.25s ease,
-    transform 0.25s ease,
-    text-decoration-color 0.25s ease;
+    color $transition-base,
+    transform $transition-base,
+    text-decoration-color $transition-base;
 }
 
 .site-footer__list a:hover {
@@ -109,19 +103,17 @@
 }
 
 .site-footer__list a:focus-visible {
-  @include focus-ring;
   border-radius: $radius-sm;
 }
 
 /* =========================
    ICONS
 ========================= */
-
 .site-footer__icons {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: $spacing-md;
-  flex-wrap: wrap;
   padding-top: 0.2rem;
 }
 
@@ -132,20 +124,20 @@
   justify-content: center;
   width: 3.05rem;
   height: 3.05rem;
-  border-radius: $radius-pill;
-  text-decoration: none;
-  color: $color-primary-dark;
-  background: rgba(255, 255, 255, 0.26);
   border: 1px solid rgba(94, 68, 168, 0.12);
+  border-radius: $radius-pill;
+  background: rgba(255, 255, 255, 0.26);
+  color: $color-primary-dark;
+  text-decoration: none;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.14),
     0 4px 12px rgba(94, 68, 168, 0.08);
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background 0.25s ease,
-    color 0.25s ease,
-    border-color 0.25s ease;
+    transform $transition-base,
+    box-shadow $transition-base,
+    background $transition-base,
+    color $transition-base,
+    border-color $transition-base;
 }
 
 .site-footer__icon-link:hover,
@@ -160,8 +152,8 @@
 .site-footer__icon-link::after {
   content: attr(data-label);
   position: absolute;
-  left: 50%;
   bottom: calc(100% + 0.7rem);
+  left: 50%;
   transform: translateX(-50%) translateY(6px);
   padding: 0.4rem 0.65rem;
   border-radius: $radius-pill;
@@ -175,8 +167,8 @@
   opacity: 0;
   pointer-events: none;
   transition:
-    opacity 0.25s ease,
-    transform 0.25s ease;
+    opacity $transition-base,
+    transform $transition-base;
 }
 
 .site-footer__icon-link:hover::after,
@@ -185,14 +177,10 @@
   transform: translateX(-50%) translateY(0);
 }
 
-.site-footer__icon-link:focus-visible {
-  @include focus-ring;
-}
-
 .site-footer__icon-link svg {
   font-size: 1.3rem;
   pointer-events: none;
-  transition: transform 0.25s ease;
+  transition: transform $transition-base;
 }
 
 .site-footer__icon-link:hover svg,
@@ -203,7 +191,6 @@
 /* =========================
    BOTTOM SIGNATURE
 ========================= */
-
 .site-footer__bottom {
   position: relative;
   z-index: 1;
@@ -213,18 +200,16 @@
 }
 
 .site-footer__signature {
-  margin: 0;
   text-align: center;
   font-size: 0.92rem;
-  letter-spacing: 0.01em;
   line-height: 1.5;
+  letter-spacing: 0.01em;
   color: $color-text-secondary;
 }
 
 /* =========================
    TABLETTE
 ========================= */
-
 @include tablet-only {
   .site-footer__content {
     gap: $spacing-lg;
@@ -238,7 +223,6 @@
 /* =========================
    MOBILE
 ========================= */
-
 @include mobile {
   .site-footer {
     padding-block: $spacing-lg $spacing-md;
@@ -259,16 +243,11 @@
 
   .site-footer__text {
     max-width: none;
-    line-height: 1.75;
     font-size: 1rem;
-  }
-
-  .site-footer__list {
-    gap: $spacing-sm;
+    line-height: 1.75;
   }
 
   .site-footer__list a {
-    min-height: auto;
     font-size: 1rem;
   }
 
@@ -288,8 +267,6 @@
   }
 
   .site-footer__bottom {
-    position: relative;
-    z-index: 1;
     margin-top: $spacing-lg;
     padding-top: $spacing-lg;
   }
@@ -299,7 +276,10 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* =========================
+   RÉDUCTION DES ANIMATIONS
+========================= */
+@include reduced-motion {
   .site-footer__list a,
   .site-footer__icon-link,
   .site-footer__icon-link::after,

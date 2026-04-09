@@ -54,6 +54,7 @@ function NotFound() {
               type="button"
               onClick={() => navigate(-1)}
               className="not-found__button not-found__button--secondary"
+              aria-label="Revenir à la page précédente"
             >
               Revenir en arrière
             </button>

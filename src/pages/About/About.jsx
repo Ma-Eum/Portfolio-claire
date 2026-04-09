@@ -3,7 +3,7 @@ import './About.scss'
 
 function About() {
   return (
-    <div className="about">
+    <main id="main-content" className="about">
       <SakuraPetals />
 
       <div className="container about__container">
@@ -174,7 +174,7 @@ function About() {
           </div>
         </section>
       </div>
-    </div>
+    </main>
   )
 }
 

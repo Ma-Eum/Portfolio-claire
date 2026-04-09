@@ -1,11 +1,17 @@
 @use './variables' as *;
 
 // ==============================
-// Responsive
+// RESPONSIVE
 // ==============================
 
 @mixin mobile-sm {
   @media (max-width: $breakpoint-mobile-sm) {
+    @content;
+  }
+}
+
+@mixin mobile-alt {
+  @media (max-width: $breakpoint-mobile-alt) {
     @content;
   }
 }
@@ -41,13 +47,24 @@
 }
 
 // ==============================
-// Helpers UI
+// ACCESSIBILITÉ
 // ==============================
 
 @mixin focus-ring {
   outline: 3px solid $color-focus;
   outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(94, 68, 168, 0.12);
 }
+
+@mixin reduced-motion {
+  @media (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+// ==============================
+// HELPERS UI
+// ==============================
 
 @mixin button-base {
   display: inline-flex;
@@ -55,35 +72,90 @@
   justify-content: center;
   min-height: 44px;
   padding: 0.82rem 1.1rem;
-  border-radius: $radius-md;
   border: 1px solid transparent;
+  border-radius: $radius-md;
   font-weight: 700;
-  text-decoration: none;
-  text-align: center;
   line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease,
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease;
+    transform $transition-base,
+    box-shadow $transition-base,
+    background-color $transition-base,
+    border-color $transition-base,
+    color $transition-base,
+    opacity $transition-base;
 }
 
-@mixin card-base {
+@mixin button-primary {
+  @include button-base;
+  background-color: $color-button-primary-background;
+  border-color: $color-button-primary-border;
+  color: $color-button-primary-text;
+
+  &:hover {
+    background-color: $color-button-primary-background-hover;
+    border-color: $color-button-primary-background-hover;
+    transform: translateY(-2px);
+    box-shadow: $shadow-button-hover;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background-color: $color-button-secondary-background;
+  border-color: $color-button-secondary-border;
+  color: $color-button-secondary-text;
+
+  &:hover {
+    background-color: $color-button-secondary-background-hover;
+    border-color: $color-primary;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(94, 68, 168, 0.12);
+  }
+}
+
+@mixin card-base($radius: $radius-xl) {
+  overflow: hidden;
   border: 1px solid $color-border;
-  border-radius: $radius-xl;
+  border-radius: $radius;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.98) 0%,
-    rgba(255, 255, 255, 0.92) 100%
+    rgba(255, 255, 255, 0.99) 0%,
+    rgba(255, 255, 255, 0.95) 100%
   );
   box-shadow: $shadow-card;
-  backdrop-filter: blur(12px);
+  transition:
+    transform $transition-slow,
+    box-shadow $transition-slow,
+    border-color $transition-slow;
 }
 
-@mixin glass-panel {
+@mixin card-hover {
+  &:hover,
+  &:focus-within {
+    transform: translateY(-6px);
+    border-color: $color-border-strong;
+    box-shadow: $shadow-card-hover;
+  }
+}
+
+@mixin elevated-panel($radius: $radius-2xl) {
   border: 1px solid $color-border-soft;
-  border-radius: $radius-xl;
+  border-radius: $radius;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.86) 100%
+  );
+  box-shadow:
+    0 18px 40px rgba(94, 68, 168, 0.06),
+    0 2px 10px rgba(94, 68, 168, 0.03);
+}
+
+@mixin glass-panel($radius: $radius-xl) {
+  border: 1px solid $color-border-soft;
+  border-radius: $radius;
   background: linear-gradient(
     135deg,
     $color-hero-overlay-start 0%,
@@ -107,8 +179,18 @@
   line-height: 1.75;
 }
 
-@mixin reduced-motion {
-  @media (prefers-reduced-motion: reduce) {
-    @content;
+@mixin card-top-glow($height: 92px) {
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: $height;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(191, 172, 232, 0.2) 0%,
+      rgba(191, 172, 232, 0.06) 55%,
+      rgba(191, 172, 232, 0) 100%
+    );
   }
 }

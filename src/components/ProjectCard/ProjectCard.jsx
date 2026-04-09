@@ -1,17 +1,15 @@
 import { Link } from 'react-router-dom'
 import './ProjectCard.scss'
 
-// Carte réutilisable pour afficher un projet.
-// Chaque carte présente un aperçu visuel, le contexte,
-// la description courte, la stack et les actions principales.
 function ProjectCard({ project }) {
+  const projectUrl = `/project/${project.id}`
+  const titleId = `project-card-title-${project.id}`
+  const stackLabel = `Technologies utilisées pour ${project.title}`
+
   return (
-    <article
-      className="project-card"
-      aria-labelledby={`project-card-title-${project.id}`}
-    >
+    <article className="project-card" aria-labelledby={titleId}>
       <Link
-        to={`/project/${project.id}`}
+        to={projectUrl}
         className="project-card__media-link"
         aria-label={`Voir le détail du projet ${project.title}`}
       >
@@ -41,8 +39,8 @@ function ProjectCard({ project }) {
           {project.context} • {project.duration}
         </p>
 
-        <h3 id={`project-card-title-${project.id}`} className="project-card__title">
-          <Link to={`/project/${project.id}`} className="project-card__title-link">
+        <h3 id={titleId} className="project-card__title">
+          <Link to={projectUrl} className="project-card__title-link">
             {project.title}
           </Link>
         </h3>
@@ -56,10 +54,7 @@ function ProjectCard({ project }) {
           </div>
         ) : null}
 
-        <ul
-          className="project-card__tags"
-          aria-label={`Technologies utilisées pour ${project.title}`}
-        >
+        <ul className="project-card__tags" aria-label={stackLabel}>
           {project.stack.map((item) => (
             <li key={item} className="project-card__tag">
               {item}
@@ -81,7 +76,7 @@ function ProjectCard({ project }) {
           ) : null}
 
           <Link
-            to={`/project/${project.id}`}
+            to={projectUrl}
             className="project-card__link project-card__link--primary"
             aria-label={`Voir le détail du projet ${project.title}`}
           >

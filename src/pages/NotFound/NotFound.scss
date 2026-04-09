@@ -1,6 +1,9 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+/* =========================
+   PAGE 404
+========================= */
 .not-found {
   min-height: 100vh;
   display: flex;
@@ -11,6 +14,9 @@
   background: $color-background;
 }
 
+/* =========================
+   LAYOUT
+========================= */
 .not-found__content {
   position: relative;
   isolation: isolate;
@@ -24,6 +30,9 @@
   background: $color-background;
 }
 
+/* =========================
+   VISUEL DE FOND
+========================= */
 .not-found__visual {
   position: absolute;
   inset: 0;
@@ -51,6 +60,9 @@
   );
 }
 
+/* =========================
+   ZONE TEXTE
+========================= */
 .not-found__text {
   position: relative;
   z-index: 3;
@@ -61,9 +73,6 @@
   align-self: stretch;
   max-width: $notfound-text-max-width;
   padding: $notfound-text-padding-desktop;
-  background: transparent;
-  border: none;
-  box-shadow: none;
 }
 
 .not-found__kanji {
@@ -71,13 +80,13 @@
   top: $notfound-kanji-top-desktop;
   right: $notfound-kanji-right-desktop;
   z-index: 0;
-  pointer-events: none;
-  user-select: none;
   font-size: clamp(5.4rem, 8vw, 8.2rem);
   font-weight: 500;
   line-height: 1;
   color: $color-notfound-accent;
   opacity: 0.42;
+  pointer-events: none;
+  user-select: none;
 }
 
 .not-found__eyebrow,
@@ -88,8 +97,11 @@
   z-index: 1;
 }
 
+/* =========================
+   TYPOGRAPHIE
+========================= */
 .not-found__eyebrow {
-  margin: 0 0 1rem;
+  margin-bottom: 1rem;
   color: $color-primary;
   font-size: $notfound-eyebrow-size;
   font-weight: 700;
@@ -98,7 +110,7 @@
 }
 
 .not-found__title {
-  margin: 0 0 1.6rem;
+  margin-bottom: 1.6rem;
   color: $color-text;
   font-size: clamp(2.7rem, 4vw, 4.2rem);
   font-weight: 700;
@@ -106,13 +118,16 @@
 }
 
 .not-found__description {
-  margin: 0 0 1.35rem;
   max-width: 31ch;
+  margin-bottom: 1.35rem;
   color: $color-text-secondary;
   font-size: $notfound-description-size;
   line-height: 1.7;
 }
 
+/* =========================
+   ACTIONS
+========================= */
 .not-found__actions {
   display: flex;
   flex-wrap: wrap;
@@ -121,49 +136,42 @@
 }
 
 .not-found__button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  @include button-base;
+
   min-height: $notfound-button-min-height;
-  padding: 0 $notfound-button-padding-inline;
+  padding-inline: $notfound-button-padding-inline;
   border-radius: $radius-md;
-  font: inherit;
   font-weight: 600;
-  text-decoration: none;
-  cursor: pointer;
-  transition:
-    transform 0.25s ease,
-    background-color 0.25s ease,
-    border-color 0.25s ease,
-    color 0.25s ease,
-    box-shadow 0.25s ease;
 }
 
 .not-found__button--primary {
   background: $color-button-primary-background;
+  border-color: $color-button-primary-border;
   color: $color-button-primary-text;
-  border: 1px solid $color-button-primary-border;
+}
 
-  &:hover {
-    transform: translateY(-1px);
-    background: $color-button-primary-background-hover;
-    border-color: $color-button-primary-background-hover;
-    box-shadow: $shadow-button-hover;
-  }
+.not-found__button--primary:hover {
+  transform: translateY(-1px);
+  background: $color-button-primary-background-hover;
+  border-color: $color-button-primary-background-hover;
+  box-shadow: $shadow-button-hover;
 }
 
 .not-found__button--secondary {
   background: $color-button-secondary-background;
+  border-color: $color-button-secondary-border;
   color: $color-button-secondary-text;
-  border: 1px solid $color-button-secondary-border;
-
-  &:hover {
-    transform: translateY(-1px);
-    background: $color-button-secondary-background-hover;
-    border-color: $color-primary;
-  }
 }
 
+.not-found__button--secondary:hover {
+  transform: translateY(-1px);
+  background: $color-button-secondary-background-hover;
+  border-color: $color-primary;
+}
+
+/* =========================
+   PÉTALES
+========================= */
 .not-found__petals {
   position: absolute;
   inset: 0;
@@ -270,6 +278,9 @@
   }
 }
 
+/* =========================
+   TABLETTE
+========================= */
 @include tablet-only {
   .not-found__content {
     min-height: $notfound-content-min-height-tablet;
@@ -288,6 +299,9 @@
   }
 }
 
+/* =========================
+   STACK MOBILE
+========================= */
 @media (max-width: $breakpoint-notfound-stack) {
   .not-found {
     padding: $spacing-md;
@@ -326,7 +340,10 @@
   }
 }
 
-@media (max-width: $breakpoint-mobile-alt) {
+/* =========================
+   MOBILE
+========================= */
+@include mobile-alt {
   .not-found__content {
     min-height: $notfound-content-min-height-mobile-sm;
     border-radius: $radius-xl;
@@ -359,7 +376,10 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* =========================
+   RÉDUCTION DES ANIMATIONS
+========================= */
+@include reduced-motion {
   .petal {
     animation: none;
     opacity: 0.22;

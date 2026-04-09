@@ -1,13 +1,9 @@
-@use './variables' as *;
 @use './bases';
-@use './mixins';
 
 // ==============================
-// Point d'entrée global
+// POINT D’ENTRÉE GLOBAL
 // ==============================
 
-// Layout global pour pousser le footer en bas
-// lorsque le contenu de la page est court.
 .app-shell {
   min-height: 100vh;
   display: flex;
@@ -16,51 +12,4 @@
 
 .app-main {
   flex: 1;
-}
-
-// ==============================
-// Accessibilité globale
-// ==============================
-html {
-  scroll-behavior: smooth;
-}
-
-.skip-link {
-  position: absolute;
-  top: -120px;
-  left: 1rem;
-  z-index: 1000;
-  padding: 0.85rem 1rem;
-  border-radius: 12px;
-  background: $color-primary-dark;
-  color: #ffffff;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 12px 24px rgba(94, 68, 168, 0.18);
-  transition: top 0.2s ease;
-}
-
-.skip-link:focus {
-  top: 1rem;
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible,
-select:focus-visible,
-[tabindex]:focus-visible {
-  outline: 3px solid $color-focus;
-  outline-offset: 3px;
-  box-shadow: 0 0 0 6px rgba(94, 68, 168, 0.12);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .skip-link {
-    transition: none;
-  }
 }

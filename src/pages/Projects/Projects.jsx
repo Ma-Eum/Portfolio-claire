@@ -19,12 +19,16 @@ function Projects() {
           </p>
         </header>
 
-        <section className="projects-page__panel" aria-label="Liste des projets">
+        <section className="projects-page__panel" aria-labelledby="projects-list-title">
+          <h2 id="projects-list-title" className="visually-hidden">
+            Liste des projets
+          </h2>
+
           <div className="projects-page__grid">
             {projects.map((project) => (
-              <article key={project.id} className="projects-page__item">
+              <div key={project.id} className="projects-page__item">
                 <ProjectCard project={project} />
-              </article>
+              </div>
             ))}
           </div>
         </section>

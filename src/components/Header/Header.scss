@@ -1,10 +1,14 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
+/* =========================
+   HEADER
+========================= */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
+  isolation: isolate;
   backdrop-filter: blur(16px);
   background: linear-gradient(
     180deg,
@@ -13,19 +17,18 @@
     rgba(201, 185, 229, 0.72) 65%,
     rgba(201, 185, 229, 0.22) 100%
   );
-  border-bottom: 1px solid rgba(94, 68, 168, 0.12);
+  border-bottom: 1px solid $color-border-soft;
   box-shadow: 0 10px 30px $color-header-shadow;
-  isolation: isolate;
 
   &::after {
     content: '';
     position: absolute;
-    left: 0;
     right: 0;
     bottom: -28px;
+    left: 0;
+    z-index: -1;
     height: 42px;
     pointer-events: none;
-    z-index: -1;
     background: linear-gradient(
       180deg,
       rgba(246, 240, 243, 0) 0%,
@@ -39,16 +42,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.25rem;
+  gap: $spacing-lg;
   min-height: 82px;
   padding-block: 0.85rem;
 }
 
+/* =========================
+   BRAND
+========================= */
 .site-header__brand {
   display: inline-flex;
+  flex-shrink: 0;
   flex-direction: column;
   gap: 0.15rem;
-  flex-shrink: 0;
   color: $color-text;
   text-decoration: none;
 }
@@ -64,7 +70,7 @@
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.02em;
-  transition: color 0.25s ease;
+  transition: color $transition-base;
 }
 
 .site-header__role {
@@ -74,6 +80,9 @@
   line-height: 1.2;
 }
 
+/* =========================
+   TOGGLE
+========================= */
 .site-header__toggle {
   display: none;
   align-items: center;
@@ -87,7 +96,6 @@
   border-radius: 16px;
   background: $color-header-toggle-background;
   box-shadow: 0 10px 24px $color-header-toggle-shadow;
-  cursor: pointer;
 }
 
 .site-header__toggle-line {
@@ -98,6 +106,9 @@
   background: $color-primary-dark;
 }
 
+/* =========================
+   NAVIGATION
+========================= */
 .site-header__nav {
   display: flex;
   align-items: center;
@@ -111,6 +122,9 @@
     0 8px 22px rgba(94, 68, 168, 0.08);
 }
 
+/* =========================
+   LIENS
+========================= */
 .site-header__link {
   display: inline-flex;
   align-items: center;
@@ -124,10 +138,10 @@
   line-height: 1;
   text-decoration: none;
   transition:
-    background-color 0.25s ease,
-    color 0.25s ease,
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    background-color $transition-base,
+    color $transition-base,
+    transform $transition-base,
+    box-shadow $transition-base;
 }
 
 .site-header__link:hover {
@@ -155,6 +169,9 @@
   color: $color-header-link-active-text;
 }
 
+/* =========================
+   TABLETTE
+========================= */
 @include tablet-only {
   .site-header__inner {
     min-height: 76px;
@@ -178,6 +195,9 @@
   }
 }
 
+/* =========================
+   MOBILE
+========================= */
 @include mobile {
   .site-header {
     &::after {
@@ -206,8 +226,8 @@
   .site-header__nav {
     position: absolute;
     top: calc(100% + 0.55rem);
-    left: 1rem;
     right: 1rem;
+    left: 1rem;
     display: none;
     flex-direction: column;
     align-items: stretch;
@@ -229,7 +249,6 @@
 
   .site-header__link {
     width: 100%;
-    justify-content: center;
     min-height: 48px;
     padding: 0.9rem 1rem;
     border-radius: 16px;
@@ -243,5 +262,15 @@
       $color-header-link-active-start 0%,
       $color-header-link-active-end 100%
     );
+  }
+}
+
+/* =========================
+   RÉDUCTION DES ANIMATIONS
+========================= */
+@include reduced-motion {
+  .site-header__name,
+  .site-header__link {
+    transition: none;
   }
 }

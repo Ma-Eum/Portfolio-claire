@@ -1,38 +1,50 @@
 import { Link } from 'react-router-dom'
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import './Footer.scss'
 
-// Le footer complète les informations de contact
-// et donne des liens rapides utiles en bas de page.
 function Footer() {
   return (
     <footer className="site-footer">
-      <div className="site-footer__glow" aria-hidden="true"></div>
+      <div className="site-footer__glow" aria-hidden="true" />
 
       <div className="container site-footer__content">
-        <div className="site-footer__block">
-          <p className="site-footer__title">Claire Gachelin</p>
+        <section className="site-footer__block" aria-labelledby="footer-about-title">
+          <h2 id="footer-about-title" className="site-footer__title">
+            Claire Gachelin
+          </h2>
+
           <p className="site-footer__text">
             Développeuse front-end junior orientée React, sensible à
             l’accessibilité, à l’expérience utilisateur et aux interfaces
             soignées.
           </p>
-        </div>
+        </section>
 
-        <div className="site-footer__block">
-          <p className="site-footer__title">Navigation</p>
+        <nav
+          className="site-footer__block"
+          aria-labelledby="footer-navigation-title"
+        >
+          <h2 id="footer-navigation-title" className="site-footer__title">
+            Navigation
+          </h2>
+
           <ul className="site-footer__list">
             <li>
               <Link to="/">Accueil</Link>
             </li>
             <li>
+              <Link to="/projects">Projets</Link>
+            </li>
+            <li>
               <Link to="/about">À propos</Link>
             </li>
           </ul>
-        </div>
+        </nav>
 
-        <div className="site-footer__block">
-          <p className="site-footer__title">Me contacter</p>
+        <section className="site-footer__block" aria-labelledby="footer-contact-title">
+          <h2 id="footer-contact-title" className="site-footer__title">
+            Me contacter
+          </h2>
 
           <div className="site-footer__icons" aria-label="Liens de contact">
             <a
@@ -47,7 +59,7 @@ function Footer() {
             </a>
 
             <a
-              href="mailto:cl.gachelin@gmail.com"
+              href="mailto:claire.gachelin@gmail.com"
               aria-label="Envoyer un email à Claire Gachelin"
               className="site-footer__icon-link"
               data-label="Email"
@@ -66,7 +78,7 @@ function Footer() {
               <FaLinkedin aria-hidden="true" focusable="false" />
             </a>
           </div>
-        </div>
+        </section>
       </div>
 
       <div className="container site-footer__bottom">

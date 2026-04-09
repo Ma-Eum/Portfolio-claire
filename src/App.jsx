@@ -1,13 +1,13 @@
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from 'react-router-dom'
-import Header from './components/Header/Header'
 import Footer from './components/Footer/Footer'
+import Header from './components/Header/Header'
+import PageTransition from './components/PageTransition/PageTransition'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
-import Home from './pages/Home/Home'
 import About from './pages/About/About'
-import Projects from './pages/Projects/Projects'
-import Project from './pages/Project/Project'
+import Home from './pages/Home/Home'
 import NotFound from './pages/NotFound/NotFound'
-import './components/PageTransition/PageTransition.scss'
+import Project from './pages/Project/Project'
+import Projects from './pages/Projects/Projects'
 
 function AnimatedRoutes() {
   const location = useLocation()
@@ -19,19 +19,25 @@ function AnimatedRoutes() {
         Aller au contenu principal
       </a>
 
-      <Header />
-      <ScrollToTop />
+      <div className="app-shell">
+        <Header />
+        <ScrollToTop />
 
-      <Routes location={location} key={location.pathname}>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/project/:id" element={<Project />} />
-        <Route path="/404" element={<NotFound />} />
-        <Route path="*" element={<Navigate to="/404" replace />} />
-      </Routes>
+        <div className="app-main">
+          <PageTransition>
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/project/:id" element={<Project />} />
+              <Route path="/404" element={<NotFound />} />
+              <Route path="*" element={<Navigate to="/404" replace />} />
+            </Routes>
+          </PageTransition>
+        </div>
 
-      {!isNotFoundPage && <Footer />}
+        {!isNotFoundPage && <Footer />}
+      </div>
     </>
   )
 }

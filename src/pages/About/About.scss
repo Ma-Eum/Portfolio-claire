@@ -1,14 +1,11 @@
 @use '../../styles/variables' as *;
 @use '../../styles/mixins' as *;
 
-/* =========================
-   PAGE ABOUT
-========================= */
 .about {
   position: relative;
   z-index: 1;
-  padding-block: $spacing-xl;
   min-height: 100vh;
+  padding-block: $spacing-xl;
   background: $color-background;
 }
 
@@ -22,48 +19,44 @@
 ========================= */
 .about__intro,
 .about__section {
-  margin-bottom: 3rem;
+  margin-bottom: $spacing-2xl;
 }
 
 /* =========================
    TITRES & TEXTES
 ========================= */
 .about__title {
-  margin: 0 0 $spacing-lg;
+  margin-bottom: $spacing-lg;
+  color: $color-text;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
-  color: $color-text;
 }
 
 .about__section-title {
-  margin: 0 0 $spacing-md;
+  margin-bottom: $spacing-md;
+  color: $color-text;
   font-size: 1.6rem;
   line-height: 1.2;
-  color: $color-text;
 }
 
 .about__text {
   max-width: 850px;
-  margin: 0 0 $spacing-md;
+  margin-bottom: $spacing-md;
   color: $color-text-secondary;
   line-height: 1.75;
+}
+
+.about__text:last-child {
+  margin-bottom: 0;
 }
 
 /* =========================
    PANEL
 ========================= */
 .about__panel {
+  @include elevated-panel(30px);
+
   padding: clamp(1.25rem, 2vw, 1.8rem);
-  border-radius: 30px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.92) 0%,
-    rgba(255, 255, 255, 0.86) 100%
-  );
-  border: 1px solid rgba(94, 68, 168, 0.1);
-  box-shadow:
-    0 18px 40px rgba(94, 68, 168, 0.06),
-    0 2px 10px rgba(94, 68, 168, 0.03);
 }
 
 .about__panel-header {
@@ -76,7 +69,6 @@
 
 .about__panel-intro {
   max-width: 760px;
-  margin: 0;
   color: $color-text-secondary;
   line-height: 1.75;
 }
@@ -95,74 +87,41 @@
    CARDS
 ========================= */
 .about__card {
+  @include card-base(22px);
+  @include card-hover;
+  @include card-top-glow;
+
   position: relative;
   display: flex;
   flex-direction: column;
-  min-height: 100%;
   min-width: 0;
+  min-height: 100%;
   width: 100%;
   padding: $spacing-lg;
-  overflow: hidden;
-  border-radius: 22px;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.99) 0%,
-    rgba(255, 255, 255, 0.95) 100%
-  );
-  border: 1px solid rgba(94, 68, 168, 0.14);
-  box-shadow:
-    0 22px 44px rgba(94, 68, 168, 0.1),
-    0 8px 18px rgba(94, 68, 168, 0.05);
-  transition:
-    transform 0.28s ease,
-    box-shadow 0.28s ease,
-    border-color 0.28s ease;
-}
-
-.about__card::before {
-  content: '';
-  position: absolute;
-  inset: 0 0 auto 0;
-  height: 92px;
-  pointer-events: none;
-  background: linear-gradient(
-    180deg,
-    rgba(191, 172, 232, 0.2) 0%,
-    rgba(191, 172, 232, 0.06) 55%,
-    rgba(191, 172, 232, 0) 100%
-  );
-}
-
-.about__card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(94, 68, 168, 0.22);
-  box-shadow:
-    0 28px 54px rgba(94, 68, 168, 0.14),
-    0 10px 22px rgba(94, 68, 168, 0.06);
 }
 
 .about__card-number {
   position: relative;
   z-index: 1;
-  margin: 0 0 0.85rem;
+  margin-bottom: 0.85rem;
   color: rgba(94, 68, 168, 0.48);
   font-size: 2rem;
   font-weight: 800;
+  line-height: 1;
 }
 
 .about__card-title {
   position: relative;
   z-index: 1;
-  margin: 0 0 $spacing-sm;
+  margin-bottom: $spacing-sm;
   min-height: 3.4rem;
-  font-size: 1.15rem;
   color: $color-primary;
+  font-size: 1.15rem;
 }
 
 .about__card-text {
   position: relative;
   z-index: 1;
-  margin: 0;
   color: $color-text-secondary;
   line-height: 1.75;
 }
@@ -176,34 +135,31 @@
   }
 }
 
-@media (max-width: 560px) {
+@include mobile-alt {
   .about__panel {
     padding: 1.5rem 1rem;
     border-radius: $radius-xl;
   }
 
   .about__card {
-    border-radius: 18px;
+    border-radius: $radius-lg;
   }
 
   .about__section-title {
     font-size: 1.45rem;
-  }
-
-  .about__grid {
-    grid-template-columns: 1fr;
   }
 }
 
 /* =========================
    RÉDUCTION DES ANIMATIONS
 ========================= */
-@media (prefers-reduced-motion: reduce) {
+@include reduced-motion {
   .about__card {
     transition: none;
   }
 
-  .about__card:hover {
+  .about__card:hover,
+  .about__card:focus-within {
     transform: none;
   }
 }

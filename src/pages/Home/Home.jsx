@@ -11,7 +11,7 @@ function Home() {
   const otherProjects = projects.filter((project) => project.id !== featuredProject.id)
 
   return (
-    <div className="home">
+    <main id="main-content" className="home">
       <div className="home__background" aria-hidden="true" />
 
       <SakuraPetals />
@@ -135,6 +135,7 @@ function Home() {
                     className="home__featured-image"
                     src={featuredProject.image}
                     alt={`Aperçu du projet ${featuredProject.title}`}
+                    loading="lazy"
                   />
                 ) : (
                   <div
@@ -147,11 +148,7 @@ function Home() {
           </div>
         </section>
 
-        <section
-          id="skills"
-          className="home__section"
-          aria-labelledby="skills-title"
-        >
+        <section id="skills" className="home__section" aria-labelledby="skills-title">
           <h2 id="skills-title" className="home__section-title">
             Compétences clés
           </h2>
@@ -195,10 +192,7 @@ function Home() {
           </div>
         </section>
 
-        <section
-          className="home__section"
-          aria-labelledby="projects-value-title"
-        >
+        <section className="home__section" aria-labelledby="projects-value-title">
           <h2 id="projects-value-title" className="home__section-title">
             Ce que mes projets montrent
           </h2>
@@ -357,7 +351,7 @@ function Home() {
           </div>
         </section>
       </div>
-    </div>
+    </main>
   )
 }
 

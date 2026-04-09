@@ -1,12 +1,11 @@
 // Source de données centralisée du portfolio.
-// Chaque projet contient les informations nécessaires
-// pour l'affichage des cartes et des pages détail.
+// Chaque projet regroupe les informations nécessaires
+// pour l’affichage des cartes et des pages de détail.
 //
-// Ainsi on évite de dupliquer le contenu dans plusieurs
-// composants.
-//
-// Plus tard, si besoin, ce tableau pourra être remplacé
-// par une API ou un fichier JSON externe.
+// Cette structure permet :
+// - d’éviter la duplication de contenu dans les composants
+// - de garder une base cohérente et facile à maintenir
+// - d’ajouter de nouveaux projets sans modifier la logique d’affichage
 
 const projects = [
   {
@@ -27,7 +26,7 @@ const projects = [
       'Adaptation responsive pour différents formats d’écran',
       'Respect visuel du design fourni avec une attention portée à la lisibilité',
     ],
-    duration: '90h',
+    duration: '90 h',
     context: 'Projet 2 OpenClassrooms',
     skills: [
       'Intégration HTML/CSS',
@@ -37,14 +36,15 @@ const projects = [
     ],
     stack: ['HTML', 'CSS', 'Responsive'],
     github: 'https://github.com/Ma-Eum/OpenClassroom_Projet02_Booki.git',
-    demo: '',
+    demo: null,
   },
+
   {
     id: 'fisheye',
     title: 'Fisheye',
     image: '/projects/fisheye.webp',
     imageAlt:
-      "Interface du projet Fisheye présentant une plateforme de photographes avec navigation accessible et galerie interactive.",
+      'Interface du projet Fisheye présentant une plateforme de photographes avec navigation accessible et galerie interactive.',
     shortDescription:
       'Création d’un site accessible pour une plateforme de photographes.',
     fullDescription:
@@ -57,19 +57,20 @@ const projects = [
       'Développement des comportements JavaScript de la galerie et du formulaire',
       'Travail sur la structure sémantique et la cohérence du parcours utilisateur',
     ],
-    duration: '70h',
+    duration: '70 h',
     context: 'Projet 6 OpenClassrooms',
     skills: ['Accessibilité', 'JavaScript', 'Navigation clavier', 'Structure UI'],
     stack: ['JavaScript', 'Accessibilité', 'UI'],
     github: 'https://github.com/Ma-Eum/OpenClassroom_Projet06_Front-End-Fisheye.git',
-    demo: '',
+    demo: null,
   },
+
   {
     id: 'sportsee',
     title: 'SportSee',
     image: '/projects/sportsee.webp',
     imageAlt:
-      "Tableau de bord SportSee affichant plusieurs graphiques de suivi d’activité utilisateur développés avec React.",
+      'Tableau de bord SportSee affichant plusieurs graphiques de suivi d’activité utilisateur développés avec React.',
     shortDescription:
       'Développement d’un tableau de bord analytics avec React et visualisation de données.',
     fullDescription:
@@ -82,7 +83,7 @@ const projects = [
       'Mise en place de graphiques lisibles et compréhensibles',
       'Organisation du code pour faciliter la maintenance et l’évolution du projet',
     ],
-    duration: '60h',
+    duration: '60 h',
     context: 'Projet 12 OpenClassrooms',
     skills: [
       'React',
@@ -92,14 +93,15 @@ const projects = [
     ],
     stack: ['React', 'API', 'Recharts'],
     github: 'https://github.com/Ma-Eum/SportSee.git',
-    demo: '',
+    demo: null,
   },
+
   {
     id: 'argentbank',
     title: 'Argent Bank',
     image: '/projects/argentbank.webp',
     imageAlt:
-      "Interface utilisateur du projet Argent Bank avec authentification et espace personnel bancaire.",
+      'Interface utilisateur du projet Argent Bank avec authentification et espace personnel bancaire.',
     shortDescription:
       'Application bancaire React avec authentification et gestion de compte utilisateur.',
     fullDescription:
@@ -112,19 +114,20 @@ const projects = [
       'Gestion et affichage des données du profil',
       'Organisation de l’application autour des routes, composants et états utiles',
     ],
-    duration: '100h',
+    duration: '100 h',
     context: 'Projet 13 OpenClassrooms',
     skills: ['React', 'API', 'Authentification', 'Gestion d’état'],
     stack: ['React', 'API', 'Authentification'],
     github: 'https://github.com/Ma-Eum/Openclassroom-Project13-BankAPI.git',
-    demo: '',
+    demo: null,
   },
+
   {
     id: 'hrnet',
     title: 'HRnet',
     image: '/projects/hrnet.webp',
     imageAlt:
-      "Interface RH du projet HRnet migré de jQuery vers React avec formulaire et composants réutilisables.",
+      'Interface RH du projet HRnet migré de jQuery vers React avec formulaire et composants réutilisables.',
     shortDescription:
       'Migration d’une application jQuery vers React avec création d’un composant réutilisable.',
     fullDescription:
@@ -137,7 +140,7 @@ const projects = [
       'Création d’un composant réutilisable publié séparément',
       'Amélioration globale de la structure et de l’organisation du projet',
     ],
-    duration: '110h',
+    duration: '110 h',
     context: 'Projet 14 OpenClassrooms',
     skills: [
       'Migration jQuery vers React',
@@ -147,14 +150,15 @@ const projects = [
     ],
     stack: ['React', 'Refactor', 'Performance'],
     github: 'https://github.com/Ma-Eum/OpenClassroom_Projet14_HRnet.git',
-    demo: '',
+    demo: null,
   },
+
   {
     id: 'handifun',
     title: 'HandiFun',
     image: '/projects/handifun.webp',
     imageAlt:
-      "Page d’accueil du projet HandiFun présentant une association inclusive avec contenus structurés et interface WordPress accessible.",
+      'Page d’accueil du projet HandiFun présentant une association inclusive avec contenus structurés et interface WordPress accessible.',
     shortDescription:
       'Création en équipe d’un site vitrine WordPress accessible pour une association proposant des activités de loisir à des personnes en situation de handicap.',
     fullDescription:
@@ -164,7 +168,7 @@ const projects = [
     work: [
       'Participation à la conception et à la réalisation d’un site vitrine WordPress en équipe',
       'Ajout d’un moteur de recherche personnalisé via header.php, searchform.php et search.php',
-      'Création et intégration de pages utiles au parcours utilisateur : Contact, Don, Plan du site et page 404',
+      'Création et intégration de pages utiles au parcours utilisateur : Contact, Don, plan du site et page 404',
       'Utilisation et paramétrage d’extensions WordPress comme Ninja Forms, WP Sitemap Page et des outils d’accessibilité',
       'Adaptation du style avec Sass/CSS pour harmoniser le rendu avec la charte du site',
       'Contribution à la mise en ligne et à l’amélioration globale de l’expérience utilisateur',
@@ -181,7 +185,7 @@ const projects = [
     ],
     stack: ['WordPress', 'PHP', 'SCSS', 'jQuery', 'Accessibilité'],
     github: 'https://github.com/Integra11y-Session-2/projet-handisport.git',
-    demo: '',
+    demo: null,
   },
 ]
 

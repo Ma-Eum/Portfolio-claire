@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useId, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Header.scss'
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const navigationId = useId()
 
   useEffect(() => {
     const handleResize = () => {
@@ -16,6 +17,20 @@ function Header() {
 
     return () => {
       window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    const handleEscape = (event) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('keydown', handleEscape)
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape)
     }
   }, [])
 
@@ -44,22 +59,23 @@ function Header() {
           className="site-header__toggle"
           type="button"
           aria-expanded={isMenuOpen}
-          aria-controls="primary-navigation"
-          aria-label={isMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+          aria-controls={navigationId}
+          aria-label={isMenuOpen ? 'Fermer le menu principal' : 'Ouvrir le menu principal'}
           onClick={toggleMenu}
         >
-          <span className="site-header__toggle-line" />
-          <span className="site-header__toggle-line" />
-          <span className="site-header__toggle-line" />
+          <span className="site-header__toggle-line" aria-hidden="true" />
+          <span className="site-header__toggle-line" aria-hidden="true" />
+          <span className="site-header__toggle-line" aria-hidden="true" />
         </button>
 
         <nav
-          id="primary-navigation"
+          id={navigationId}
           className={`site-header__nav ${isMenuOpen ? 'site-header__nav--open' : ''}`}
           aria-label="Navigation principale"
         >
           <NavLink
             to="/"
+            end
             onClick={closeMenu}
             className={({ isActive }) =>
               `site-header__link ${isActive ? 'site-header__link--active' : ''}`
