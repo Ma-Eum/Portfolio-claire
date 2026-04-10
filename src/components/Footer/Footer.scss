@@ -231,9 +231,11 @@
   .site-footer__content {
     grid-template-columns: 1fr;
     gap: $spacing-xl;
+    text-align: center;
   }
 
   .site-footer__block {
+    align-items: center;
     gap: $spacing-md;
   }
 
@@ -245,6 +247,11 @@
     max-width: none;
     font-size: 1rem;
     line-height: 1.75;
+    text-align: center;
+  }
+
+  .site-footer__list {
+    align-items: center;
   }
 
   .site-footer__list a {
@@ -252,6 +259,7 @@
   }
 
   .site-footer__icons {
+    justify-content: center;
     gap: $spacing-sm;
     padding-top: 0;
     margin-bottom: $spacing-lg;

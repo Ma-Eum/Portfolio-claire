@@ -1,14 +1,19 @@
 import { Link, useNavigate } from 'react-router-dom'
 import './NotFound.scss'
 
+// Page 404 personnalisée du portfolio.
+// Elle conserve l'univers visuel du site tout en proposant
+// des actions simples pour revenir vers un contenu utile.
 function NotFound() {
   const navigate = useNavigate()
 
   return (
     <main id="main-content" className="not-found">
       <section className="not-found__content" aria-labelledby="not-found-title">
+        {/* Visuel de fond purement décoratif */}
         <div className="not-found__visual" aria-hidden="true" />
 
+        {/* Animation décorative de pétales */}
         <div className="not-found__petals" aria-hidden="true">
           <span className="petal petal--1" />
           <span className="petal petal--2" />
@@ -45,6 +50,8 @@ function NotFound() {
             pour revenir vers l’essentiel.
           </p>
 
+          {/* Deux issues possibles : revenir à l'accueil
+              ou retourner à la page précédente si l'utilisateur le souhaite */}
           <div className="not-found__actions">
             <Link to="/" className="not-found__button not-found__button--primary">
               Retour à l’accueil

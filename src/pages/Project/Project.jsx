@@ -3,15 +3,20 @@ import SakuraPetals from '../../components/SakuraPetals/SakuraPetals'
 import projects from '../../data/projects'
 import './Project.scss'
 
+// Page de détail d'un projet.
+// Elle récupère l'identifiant dans l'URL, affiche le contenu associé
+// et permet de naviguer facilement vers le projet précédent ou suivant.
 function Project() {
   const { id } = useParams()
   const projectIndex = projects.findIndex((item) => item.id === id)
   const project = projects[projectIndex]
 
+  // Redirige vers la page 404 si l'identifiant ne correspond à aucun projet.
   if (!project) {
     return <Navigate to="/404" replace />
   }
 
+  // Permet de créer une navigation séquentielle entre les projets.
   const previousProject = projectIndex > 0 ? projects[projectIndex - 1] : null
   const nextProject = projectIndex < projects.length - 1 ? projects[projectIndex + 1] : null
 
@@ -20,6 +25,7 @@ function Project() {
       <SakuraPetals />
 
       <div className="container project__container">
+        {/* Hero de présentation du projet */}
         <header className="project__hero">
           <p className="project__context">{project.context}</p>
           <h1 className="project__title">{project.title}</h1>
@@ -36,6 +42,7 @@ function Project() {
         </header>
 
         <div className="project__grid">
+          {/* Contenu principal : contexte, réalisation et compétences */}
           <article className="project__content" aria-labelledby="project-content-title">
             <h2 id="project-content-title" className="visually-hidden">
               Contenu du projet
@@ -70,6 +77,7 @@ function Project() {
             </section>
           </article>
 
+          {/* Aside latéral : stack technique et liens utiles */}
           <aside className="project__side" aria-labelledby="project-side-title">
             <section className="project__section project__section--sticky">
               <h2 id="project-side-title" className="project__section-title">
@@ -120,6 +128,7 @@ function Project() {
           </aside>
         </div>
 
+        {/* Navigation séquentielle entre les projets */}
         <nav className="project__pagination" aria-label="Navigation entre les projets">
           <div className="project__pagination-item project__pagination-item--prev">
             {previousProject ? (

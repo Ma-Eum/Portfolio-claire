@@ -4,10 +4,17 @@ import SakuraPetals from '../../components/SakuraPetals/SakuraPetals'
 import projects from '../../data/projects'
 import './Home.scss'
 
+// Page d'accueil du portfolio.
+// Elle présente le positionnement, un projet mis en avant,
+// les compétences clés, les autres projets et les éléments de contact.
 function Home() {
+  // HandiFun est mis en avant en priorité.
+  // Si le projet n'est pas trouvé, on utilise le premier projet disponible.
   const featuredProject =
     projects.find((project) => project.id === 'handifun') || projects[0]
 
+  // Le projet mis en avant est retiré de la grille secondaire
+  // pour éviter de l'afficher deux fois sur la page.
   const otherProjects = projects.filter((project) => project.id !== featuredProject.id)
 
   return (
@@ -17,6 +24,7 @@ function Home() {
       <SakuraPetals />
 
       <div className="container home__container">
+        {/* Hero de présentation */}
         <section className="home__hero" aria-labelledby="home-title">
           <div className="home__hero-content">
             <p className="home__eyebrow">Développeuse Front-End React</p>
@@ -65,6 +73,7 @@ function Home() {
           </div>
         </section>
 
+        {/* Projet principal mis en avant */}
         <section
           id="featured-project"
           className="home__section home__section--featured"
@@ -148,6 +157,7 @@ function Home() {
           </div>
         </section>
 
+        {/* Compétences clés */}
         <section id="skills" className="home__section" aria-labelledby="skills-title">
           <h2 id="skills-title" className="home__section-title">
             Compétences clés
@@ -192,6 +202,7 @@ function Home() {
           </div>
         </section>
 
+        {/* Ce que les projets démontrent sur la progression */}
         <section className="home__section" aria-labelledby="projects-value-title">
           <h2 id="projects-value-title" className="home__section-title">
             Ce que mes projets montrent
@@ -227,6 +238,9 @@ function Home() {
           </div>
         </section>
 
+        {/* Grille secondaire des projets.
+            Chaque carte reçoit un délai progressif pour créer
+            une animation d’apparition en cascade. */}
         <section
           id="projects"
           className="home__section home__section--projects"
@@ -259,6 +273,7 @@ function Home() {
           </div>
         </section>
 
+        {/* Apports humains et méthodologiques pour une équipe */}
         <section
           className="home__section home__section--contribution"
           aria-labelledby="contribution-title"
@@ -318,6 +333,7 @@ function Home() {
           </div>
         </section>
 
+        {/* Bloc de contact final */}
         <section className="home__section" aria-labelledby="contact-title">
           <div className="home__contact-card">
             <h2 id="contact-title" className="home__section-title">

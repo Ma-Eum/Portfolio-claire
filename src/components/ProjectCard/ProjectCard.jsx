@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom'
 import './ProjectCard.scss'
 
+// Carte projet réutilisable sur la page d'accueil et la page projets.
+// Elle présente un résumé du projet avec un aperçu visuel, les technologies
+// utilisées et les actions principales de navigation.
 function ProjectCard({ project }) {
   const projectUrl = `/project/${project.id}`
   const titleId = `project-card-title-${project.id}`
+  
+  // Label accessible pour décrire la liste de technologies
   const stackLabel = `Technologies utilisées pour ${project.title}`
 
   return (
@@ -22,6 +27,7 @@ function ProjectCard({ project }) {
               loading="lazy"
             />
           ) : (
+            /* Placeholder décoratif si aucun visuel n’est disponible pour le projet */
             <div
               className="project-card__image project-card__image--placeholder"
               aria-hidden="true"
@@ -45,8 +51,12 @@ function ProjectCard({ project }) {
           </Link>
         </h3>
 
+        {/* La hauteur de cette zone est harmonisée en SCSS
+            pour garder un alignement visuel cohérent entre les cartes,
+            même lorsque certaines descriptions sont plus longues. */}
         <p className="project-card__description">{project.shortDescription}</p>
 
+        {/* Bloc optionnel mettant en avant la valeur du projet pour un recruteur */}
         {project.recruiterHighlight ? (
           <div className="project-card__highlight">
             <p className="project-card__highlight-label">Ce que ce projet démontre</p>

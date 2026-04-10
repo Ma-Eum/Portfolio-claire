@@ -3,6 +3,8 @@ import SakuraPetals from '../../components/SakuraPetals/SakuraPetals'
 import projects from '../../data/projects'
 import './Projects.scss'
 
+// Page listant l'ensemble des projets du portfolio.
+// Elle reprend la carte projet réutilisable dans une grille dédiée.
 function Projects() {
   return (
     <main id="main-content" className="projects-page">
@@ -19,6 +21,8 @@ function Projects() {
           </p>
         </header>
 
+        {/* Le titre de section reste masqué visuellement
+            mais conserve une structure claire pour les lecteurs d'écran. */}
         <section className="projects-page__panel" aria-labelledby="projects-list-title">
           <h2 id="projects-list-title" className="visually-hidden">
             Liste des projets

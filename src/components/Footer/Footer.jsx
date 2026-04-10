@@ -2,12 +2,17 @@ import { Link } from 'react-router-dom'
 import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
 import './Footer.scss'
 
+// Footer global du site.
+// Il regroupe une présentation rapide, la navigation principale
+// et les liens de contact (réseaux + email).
 function Footer() {
   return (
     <footer className="site-footer">
+      {/* Effet visuel décoratif (glow) en arrière-plan */}
       <div className="site-footer__glow" aria-hidden="true" />
 
       <div className="container site-footer__content">
+        {/* Présentation */}
         <section className="site-footer__block" aria-labelledby="footer-about-title">
           <h2 id="footer-about-title" className="site-footer__title">
             Claire Gachelin
@@ -20,6 +25,9 @@ function Footer() {
           </p>
         </section>
 
+        {/* Navigation principale */}
+        {/* Utilisation d’aria-label sur les icônes pour garantir l’accessibilité
+    même sans texte visible */}
         <nav
           className="site-footer__block"
           aria-labelledby="footer-navigation-title"
@@ -41,6 +49,7 @@ function Footer() {
           </ul>
         </nav>
 
+        {/* Liens de contact avec icônes accessibles */}
         <section className="site-footer__block" aria-labelledby="footer-contact-title">
           <h2 id="footer-contact-title" className="site-footer__title">
             Me contacter
@@ -81,6 +90,7 @@ function Footer() {
         </section>
       </div>
 
+      {/* Signature / crédit */}
       <div className="container site-footer__bottom">
         <p className="site-footer__signature">
           Conçu et développé avec soin par Claire Gachelin

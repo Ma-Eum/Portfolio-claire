@@ -1,12 +1,16 @@
 import SakuraPetals from '../../components/SakuraPetals/SakuraPetals'
 import './About.scss'
 
+// Page de présentation du profil.
+// Elle permet d'expliquer le positionnement, la manière de travailler
+// et les objectifs professionnels sans dupliquer le contenu des projets.
 function About() {
   return (
     <main id="main-content" className="about">
       <SakuraPetals />
 
       <div className="container about__container">
+        {/* Introduction générale du profil */}
         <section className="about__intro" aria-labelledby="about-title">
           <h1 id="about-title" className="about__title">
             À propos
@@ -32,6 +36,7 @@ function About() {
           </p>
         </section>
 
+        {/* Positionnement professionnel et axes de contribution en front-end */}
         <section className="about__section" aria-labelledby="about-positioning-title">
           <div className="about__panel">
             <div className="about__panel-header">
@@ -90,6 +95,7 @@ function About() {
           </div>
         </section>
 
+        {/* Valeur ajoutée apportée à une équipe au-delà des outils techniques */}
         <section className="about__section" aria-labelledby="about-value-title">
           <div className="about__panel">
             <div className="about__panel-header">
@@ -146,6 +152,7 @@ function About() {
           </div>
         </section>
 
+        {/* Projection professionnelle à court terme */}
         <section className="about__section" aria-labelledby="about-goal-title">
           <div className="about__panel">
             <div className="about__panel-header">

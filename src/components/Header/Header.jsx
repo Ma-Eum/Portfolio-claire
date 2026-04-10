@@ -2,11 +2,15 @@ import { useEffect, useId, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import './Header.scss'
 
+// Header global du site.
+// Il gère la navigation principale ainsi qu'un menu mobile
+// accessible, refermable au clic, au redimensionnement et avec la touche Échap.
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const navigationId = useId()
 
   useEffect(() => {
+    // Referme le menu mobile lorsqu'on repasse en affichage desktop.
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setIsMenuOpen(false)
@@ -21,6 +25,8 @@ function Header() {
   }, [])
 
   useEffect(() => {
+    // Permet de fermer le menu avec la touche Échap
+    // pour améliorer l'accessibilité clavier.
     const handleEscape = (event) => {
       if (event.key === 'Escape') {
         setIsMenuOpen(false)
@@ -55,6 +61,7 @@ function Header() {
           <span className="site-header__role">Front-End React</span>
         </NavLink>
 
+        {/* Bouton d'ouverture / fermeture du menu en version mobile */}
         <button
           className="site-header__toggle"
           type="button"
